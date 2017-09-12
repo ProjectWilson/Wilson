@@ -1,0 +1,14 @@
+
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDh7k9Ki0MhGawZqgciedJwftnweljTM3s",
+    authDomain: "shizzlelists-739d1.firebaseapp.com",
+    databaseURL: "https://shizzlelists-739d1.firebaseio.com",
+    projectId: "shizzlelists-739d1",
+    storageBucket: "shizzlelists-739d1.appspot.com",
+    messagingSenderId: "718786568691"
+  };
+  firebase.initializeApp(config);
+</script>
