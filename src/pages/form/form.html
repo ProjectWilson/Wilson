@@ -9,13 +9,21 @@
 <ion-content padding>
   <form (ngSubmit)="logForm()">
     <ion-item>
-      <ion-label>Todo</ion-label>
-      <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
+      <ion-label>Naam</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Description</ion-label>
-      <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
+      <ion-label>Beoordeling</ion-label>
+      <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
     </ion-item>
     <button ion-button type="submit" block>Add Todo</button>
   </form>
+
+  <ion-list>
+    <ion-item *ngFor="let form of forms | async">
+      Title: {{form.naam}}
+      <br />
+      Beoordeling: {{form.beoordeling}}
+    </ion-item>
+  </ion-list>
 </ion-content>

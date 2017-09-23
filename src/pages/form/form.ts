@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'page-form',
   templateUrl: 'form.html'
 })
+
 export class FormPage {
 
-  constructor(public navCtrl: NavController) {
+	forms: FirebaseListObservable<any>;
 
-  }
-
-  todo = {}
-  logForm() {
-    console.log(this.todo)
+  constructor(public navCtrl: NavController, af: AngularFireDatabase) {
+	this.forms = af.list('/beoordeelforms');
   }
   
+  todo = {}
+  logForm() {
+	this.forms.push(this.todo);	
+  }
 }

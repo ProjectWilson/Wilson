@@ -12,6 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 //import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 //AF2 Settings
 
@@ -46,7 +48,8 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,
-    SplashScreen
+    SplashScreen,
+	AngularFireAuth,
   ]
 })
 export class AppModule {}
