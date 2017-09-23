@@ -1,21 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Beoordelings Formulier.
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<h2>Leden</h2>
-
-<ul>
-<li>Wesley Koning</li>
-<li>Kevin Klaassen</li>
-<li>Youssef Kasem</li>
-<li>Ferdinand Richard JP van Leeuwen</li>
-<li>Mohammed Bouiyad</li>
-<li>Li-li Abathur!!!!!!!!!!!!!!!!!!</li>
-</ul>
-
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Todo</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Add Todo</button>
+  </form>
 </ion-content>

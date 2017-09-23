@@ -11,4 +11,9 @@ export class FormPage {
 
   }
 
+  todo = {}
+  logForm() {
+    console.log(this.todo)
+  }
+  
 }
