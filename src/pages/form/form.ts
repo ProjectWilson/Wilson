@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 import jsPDF from 'jspdf'
@@ -14,7 +15,7 @@ export class FormPage {
 
 	forms: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, af: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
 	   this.forms = af.list('/gesprekforms');
   }
 
@@ -34,6 +35,9 @@ export class FormPage {
           if(id.akkoord == true)
           {
               this.forms.push(this.todo);
+          }
+          else{
+            this.presentAlert();
           }
       }
 
@@ -79,4 +83,13 @@ export class FormPage {
           doc.text('Handtekening Student', margin, textHeight + 2.5);
           doc.save('Test.pdf');
       }
+
+      presentAlert() {
+      let alert = this.alertCtrl.create({
+        title: 'Akkoord',
+        subTitle: 'Ga akkoord met het formulier',
+        buttons: ['Sluit']
+      });
+      alert.present();
+}
 }
