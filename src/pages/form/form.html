@@ -21,10 +21,10 @@
 
   <ion-list>
     <ion-item *ngFor="let form of forms | async">
-      Title: {{form.naam}} <button ion-button id='exportButton' (click)='download()'>Export</button>
-      <br />
-      Beoordeling: {{form.beoordeling}}
-    </ion-item>
+        Title: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)'>Export</button>
+        <br />
+        Beoordeling: {{form.beoordeling}}
+        </ion-item>
   </ion-list>
 </ion-content>
 
