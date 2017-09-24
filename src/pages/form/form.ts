@@ -15,7 +15,7 @@ export class FormPage {
 	forms: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController, af: AngularFireDatabase) {
-	   this.forms = af.list('/beoordeelforms');
+	   this.forms = af.list('/gesprekforms');
   }
 
   todo = {}
@@ -57,7 +57,7 @@ export class FormPage {
           let doc = new jsPDF({
               unit: 'in',
               lineHeight: lineHeight
-            }).setProperties({ title: 'Beoordelingsformulier' });
+            }).setProperties({ title: 'Gespreksformulier' });
 
           let textLines = doc
               .setFont('helvetica', 'neue')
@@ -70,7 +70,7 @@ export class FormPage {
           let textHeight = textLines.length * fontSize * lineHeight / ptsPerInch;
               doc
                   .setFontStyle('bold')
-                  .text('Beoordelingsformulier:', margin, margin + oneLineHeight);
+                  .text('Gespreksformulier:', margin, margin + oneLineHeight);
 
 
         //maakt rectangles

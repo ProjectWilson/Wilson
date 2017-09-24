@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Beoordelings Formulier.
+      Gespreksformulier.
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -36,12 +36,12 @@
         <ion-label>Akkoord</ion-label>
         <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
       </ion-item>
-      <button ion-button type="submit" block>Add Todo</button>
+      <button ion-button type="submit" block>Upload Gespreksformulier  <ion-icon name='add-circle'></ion-icon></button>
     </form>
 
   <ion-list>
     <ion-item *ngFor="let form of forms | async">
-        Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)'>Export</button>
+        Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export <ion-icon name='download'></ion-icon></button>
         <br />
         BPV Docent: {{form.bpvdocent}}
         <br />
