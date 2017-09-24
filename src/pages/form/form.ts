@@ -59,15 +59,11 @@ export class FormPage {
               lineHeight: lineHeight
             }).setProperties({ title: 'Beoordelingsformulier' });
 
-            //maakt rectangles
-            doc.setLineWidth(0.1);
-            doc.rect(margin, margin + 5, 3, oneLineHeight + 1);
-
-
           let textLines = doc
               .setFont('helvetica', 'neue')
               .setFontSize(fontSize)
               .splitTextToSize(text, maxLineWidth);
+
           //Create de tekst en pdf format
           doc.text(textLines, margin, margin + 2 * oneLineHeight);
 
@@ -75,12 +71,12 @@ export class FormPage {
               doc
                   .setFontStyle('bold')
                   .text('Beoordelingsformulier:', margin, margin + oneLineHeight);
-                  doc.triangle(60, 100, 60, 120, 80, 110, 'FD');
 
-                  doc.setLineWidth(1);
-                  doc.setDrawColor(255,0,0);
-                  doc.setFillColor(0,0,255);
-                  doc.triangle(100, 100, 110, 100, 120, 130, 'FD');
+
+        //maakt rectangles
+          doc.setLineWidth(0);
+          doc.rect(margin, textHeight + 3, 3, oneLineHeight + 1);
+          doc.text('Handtekening Student', margin, textHeight + 2.5);
           doc.save('Test.pdf');
       }
 }
