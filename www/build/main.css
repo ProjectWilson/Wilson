@@ -25199,6 +25199,10 @@ ion-navbar.toolbar {
   }
 }
 
+#headers {
+  background-color: blue;
+}
+
 #exportButton {
   float: right;
 }
