@@ -20,11 +20,22 @@ export class FormPage {
 
   todo = {}
   logForm(id) {
-      if(id.akkoord == true)
-      {
-         this.forms.push(this.todo);
+          if(id.datum == null)
+          {
+              let date = new Date;
+              let year = date.getFullYear();
+              let month = date.getMonth() + 1;
+              let day = date.getDate();
+              let datum = year + '-' + month + '-' + day;
+
+              this.todo['datum'] = datum;
+              console.log(1);
+          }
+          if(id.akkoord == true)
+          {
+              this.forms.push(this.todo);
+          }
       }
-    }
 
   public download(id) {
           console.log(id.naam);
@@ -55,7 +66,12 @@ export class FormPage {
               doc
                   .setFontStyle('bold')
                   .text('Beoordelingsformulier:', margin, margin + oneLineHeight);
+                  doc.triangle(60, 100, 60, 120, 80, 110, 'FD');
 
+                  doc.setLineWidth(1);
+                  doc.setDrawColor(255,0,0);
+                  doc.setFillColor(0,0,255);
+                  doc.triangle(100, 100, 110, 100, 120, 130, 'FD');
           doc.save('Test.pdf');
       }
 }
