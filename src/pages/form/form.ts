@@ -48,6 +48,10 @@ export class FormPage {
           ptsPerInch = 72,
           oneLineHeight = fontSize * lineHeight / ptsPerInch,
           text = 'Naam: \n' + id.naam + '\n' +
+              'BPV Docent: \n' + id.bpvdocent + '\n' +
+              'BPV Bedrijf: \n' + id.bpvbedrijf + '\n' +
+              'Praktijkopleider: \n' + id.praktijkopleider + '\n' +
+              'Datum: \n' + id.datum + '\n' +
               'Beoordeling: \n' + id.beoordeling + '\n';
 
           let doc = new jsPDF({
@@ -55,11 +59,16 @@ export class FormPage {
               lineHeight: lineHeight
             }).setProperties({ title: 'Beoordelingsformulier' });
 
+            //maakt rectangles
+            doc.setLineWidth(0.1);
+            doc.rect(margin, margin + 5, 3, oneLineHeight + 1);
+
+
           let textLines = doc
               .setFont('helvetica', 'neue')
               .setFontSize(fontSize)
               .splitTextToSize(text, maxLineWidth);
-
+          //Create de tekst en pdf format
           doc.text(textLines, margin, margin + 2 * oneLineHeight);
 
           let textHeight = textLines.length * fontSize * lineHeight / ptsPerInch;
