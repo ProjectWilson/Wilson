@@ -19,18 +19,43 @@ export class FormPage {
   }
 
   todo = {}
-  logForm() {
-	   this.forms.push(this.todo);
-  }
-
-  public download(id) {
-        console.log(id.naam);
-        let doc = new jsPDF();
-        let beoordeling = id.beoordeling
-        let beoordeling1 = doc.splitTextToSize("Beoordeling:" + beoordeling, 7.5);
-        doc.text(20,20,"Naam:" + id.naam);
-        doc.text(20,30,"Beoordeling:" + beoordeling1);
-        doc.save('Test.pdf');
+  logForm(id) {
+      if(id.akkoord == true)
+      {
+         this.forms.push(this.todo);
+      }
     }
 
+  public download(id) {
+          console.log(id.naam);
+
+          let pageWidth = 8.5,
+          lineHeight = 1.2,
+          margin = 0.5,
+          maxLineWidth = pageWidth - margin * 2,
+          fontSize = 24,
+          ptsPerInch = 72,
+          oneLineHeight = fontSize * lineHeight / ptsPerInch,
+          text = 'Naam: \n' + id.naam + '\n' +
+              'Beoordeling: \n' + id.beoordeling + '\n';
+
+          let doc = new jsPDF({
+              unit: 'in',
+              lineHeight: lineHeight
+            }).setProperties({ title: 'Beoordelingsformulier' });
+
+          let textLines = doc
+              .setFont('helvetica', 'neue')
+              .setFontSize(fontSize)
+              .splitTextToSize(text, maxLineWidth);
+
+          doc.text(textLines, margin, margin + 2 * oneLineHeight);
+
+          let textHeight = textLines.length * fontSize * lineHeight / ptsPerInch;
+              doc
+                  .setFontStyle('bold')
+                  .text('Beoordelingsformulier:', margin, margin + oneLineHeight);
+
+          doc.save('Test.pdf');
+      }
 }

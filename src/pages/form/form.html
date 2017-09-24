@@ -7,17 +7,21 @@
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="logForm()">
-    <ion-item>
-      <ion-label>Naam</ion-label>
-      <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Beoordeling</ion-label>
-      <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
-    </ion-item>
-    <button ion-button type="submit" block>Add Todo</button>
-  </form>
+  <form (ngSubmit)="logForm(todo)">
+      <ion-item>
+        <ion-label>Naam</ion-label>
+        <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Beoordeling</ion-label>
+        <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Akkoord</ion-label>
+        <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
+      </ion-item>
+      <button ion-button type="submit" block>Add Todo</button>
+    </form>
 
   <ion-list>
     <ion-item *ngFor="let form of forms | async">
@@ -27,5 +31,3 @@
         </ion-item>
   </ion-list>
 </ion-content>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
