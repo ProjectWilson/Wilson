@@ -48,15 +48,15 @@ export class FormPage {
           lineHeight = 1.2,
           margin = 0.5,
           maxLineWidth = pageWidth - margin * 2,
-          fontSize = 24,
+          fontSize = 14,
           ptsPerInch = 72,
           oneLineHeight = fontSize * lineHeight / ptsPerInch,
-          text = 'Naam: \n' + id.naam + '\n' +
-              'BPV Docent: \n' + id.bpvdocent + '\n' +
-              'BPV Bedrijf: \n' + id.bpvbedrijf + '\n' +
-              'Praktijkopleider: \n' + id.praktijkopleider + '\n' +
-              'Datum: \n' + id.datum + '\n' +
-              'Beoordeling: \n' + id.beoordeling + '\n';
+          text = 'Naam: \n' + id.naam + '\n\n' +
+              'BPV Docent: \n' + id.bpvdocent + '\n\n' +
+              'BPV Bedrijf: \n' + id.bpvbedrijf + '\n\n' +
+              'Praktijkopleider: \n' + id.praktijkopleider + '\n\n' +
+              'Datum: \n' + id.datum + '\n\n' +
+              'Beoordeling: \n' + id.beoordeling + '\n\n';
 
           let doc = new jsPDF({
               unit: 'in',
@@ -81,6 +81,8 @@ export class FormPage {
           doc.setLineWidth(0);
           doc.rect(margin, textHeight + 3, 3, oneLineHeight + 1);
           doc.text('Handtekening Student', margin, textHeight + 2.5);
+		  doc.rect(margin + 4, textHeight + 3, 3, oneLineHeight + 1);
+		  doc.text('Handtekening Begeleider', margin + 4, textHeight + 2.5);
           doc.save('Test.pdf');
       }
 
