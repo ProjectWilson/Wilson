@@ -62,7 +62,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Beoordeling" tabIcon="information-circle"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Gespreksformulier" tabIcon="clipboard"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -77,7 +77,7 @@ TabsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf__ = __webpack_require__(398);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jspdf__);
@@ -94,11 +94,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var FormPage = (function () {
-    function FormPage(navCtrl, af) {
+    function FormPage(navCtrl, af, alertCtrl) {
         this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
         this.todo = {};
-        this.forms = af.list('/beoordeelforms');
+        this.forms = af.list('/gesprekforms');
     }
     FormPage.prototype.logForm = function (id) {
         if (id.datum == null) {
@@ -113,6 +115,9 @@ var FormPage = (function () {
         if (id.akkoord == true) {
             this.forms.push(this.todo);
         }
+        else {
+            this.presentAlert();
+        }
     };
     FormPage.prototype.download = function (id) {
         console.log(id.naam);
@@ -125,7 +130,7 @@ var FormPage = (function () {
         var doc = new __WEBPACK_IMPORTED_MODULE_3_jspdf___default.a({
             unit: 'in',
             lineHeight: lineHeight
-        }).setProperties({ title: 'Beoordelingsformulier' });
+        }).setProperties({ title: 'Gespreksformulier' });
         var textLines = doc
             .setFont('helvetica', 'neue')
             .setFontSize(fontSize)
@@ -135,24 +140,28 @@ var FormPage = (function () {
         var textHeight = textLines.length * fontSize * lineHeight / ptsPerInch;
         doc
             .setFontStyle('bold')
-            .text('Beoordelingsformulier:', margin, margin + oneLineHeight);
-        doc.triangle(60, 100, 60, 120, 80, 110, 'FD');
-        doc.setLineWidth(1);
-        doc.setDrawColor(255, 0, 0);
-        doc.setFillColor(0, 0, 255);
-        doc.triangle(100, 100, 110, 100, 120, 130, 'FD');
+            .text('Gespreksformulier:', margin, margin + oneLineHeight);
         //maakt rectangles
         doc.setLineWidth(0);
-        doc.rect(margin, textHeight + 1, 3, oneLineHeight + 1);
+        doc.rect(margin, textHeight + 3, 3, oneLineHeight + 1);
+        doc.text('Handtekening Student', margin, textHeight + 2.5);
         doc.save('Test.pdf');
+    };
+    FormPage.prototype.presentAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Akkoord',
+            subTitle: 'Ga akkoord met het formulier',
+            buttons: ['Sluit']
+        });
+        alert.present();
     };
     return FormPage;
 }());
 FormPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-form',template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\form\form.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Beoordelings Formulier.\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <form (ngSubmit)="logForm(todo)">\n\n      <ion-item>\n\n        <ion-label>Naam Student</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>BPV Docent</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>BPV Bedrijf</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Praktijkopleider</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Beoordeling</ion-label>\n\n        <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Datum</ion-label>\n\n        <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>\n\n        </ion-item>\n\n      <ion-item>\n\n        <ion-label>Akkoord</ion-label>\n\n        <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>\n\n      </ion-item>\n\n      <button ion-button type="submit" block>Add Todo</button>\n\n    </form>\n\n\n\n  <ion-list>\n\n    <ion-item *ngFor="let form of forms | async">\n\n        Studentnaam: {{form.naam}} <button ion-button id=\'exportButton\' (click)=\'download(form)\'>Export</button>\n\n        <br />\n\n        BPV Docent: {{form.bpvdocent}}\n\n        <br />\n\n        BPV Bedrijf: {{form.bpvbedrijf}}\n\n        <br />\n\n        Praktijkopleider: {{form.praktijkopleider}}\n\n        <br />\n\n        Beoordeling: {{form.beoordeling}}\n\n        <br />\n\n        Datum: {{form.datum}}\n\n        </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\form\form.html"*/
+        selector: 'page-form',template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\form\form.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title text-center>\n\n      Gespreksformulier.\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <form (ngSubmit)="logForm(todo)">\n\n      <ion-item>\n\n        <ion-label floating>Naam Student</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>BPV Docent</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>BPV Bedrijf</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>Praktijkopleider</ion-label>\n\n        <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>Beoordeling</ion-label>\n\n        <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Datum</ion-label>\n\n        <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>\n\n        </ion-item>\n\n      <ion-item>\n\n        <ion-label>Akkoord</ion-label>\n\n        <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>\n\n      </ion-item>\n\n      <button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name=\'add-circle\'></ion-icon></button>\n\n    </form>\n\n\n\n  <ion-list>\n\n    <ion-item *ngFor="let form of forms | async">\n\n        Studentnaam: {{form.naam}} <button ion-button id=\'exportButton\' (click)=\'download(form)\' large>Export&nbsp;<ion-icon name=\'download\'></ion-icon></button>\n\n        <br />\n\n        BPV Docent: {{form.bpvdocent}}\n\n        <br />\n\n        BPV Bedrijf: {{form.bpvbedrijf}}\n\n        <br />\n\n        Praktijkopleider: {{form.praktijkopleider}}\n\n        <br />\n\n        Beoordeling: {{form.beoordeling}}\n\n        <br />\n\n        Datum: {{form.datum}}\n\n        </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\form\form.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], FormPage);
 
 //# sourceMappingURL=form.js.map
@@ -165,7 +174,7 @@ FormPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -187,7 +196,7 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Project Wilson\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  Home page met info, ga naar beoordeling tab.\n\n</ion-content>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
@@ -216,14 +225,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_form_form__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__ = __webpack_require__(230);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -267,11 +276,11 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */]),
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */]),
             __WEBPACK_IMPORTED_MODULE_9_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
             __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__["b" /* AngularFireDatabaseModule */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
@@ -295,7 +304,7 @@ AppModule = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(228);
@@ -328,7 +337,7 @@ var MyApp = (function () {
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"c:\Ionic\Wilson\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\app\app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
