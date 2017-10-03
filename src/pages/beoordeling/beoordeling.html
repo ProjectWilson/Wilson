@@ -1,9 +1,9 @@
 <ion-header>
   <ion-navbar>
     <ion-title text-center>
-      <button ion-button (click)="vorigeSlide()">Vorige</button>
+      <button ion-button (click)="vorigeSlide()"><ion-icon name='arrow-back'></ion-icon>&nbsp; Vorige</button>
       Beoordelingsformulier.
-      <button ion-button (click)="nextSlide()">Volgende</button>
+      <button ion-button (click)="nextSlide()">Volgende &nbsp;<ion-icon name='arrow-forward'></ion-icon></button>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -35,27 +35,266 @@
           <ion-label>Akkoord</ion-label>
           <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
         </ion-item>
-        <button ion-button type="submit" block>Upload Beoordeling&nbsp;<ion-icon name='add-circle'></ion-icon></button>
       </form>
   </ion-slide>
   <ion-slide>
-    <ion-list>
-      <ion-item *ngFor="let form of forms | async">
-          Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
-          <br />
-          BPV Docent: {{form.bpvdocent}}
-          <br />
-          BPV Bedrijf: {{form.bpvbedrijf}}
-          <br />
-          Praktijkopleider: {{form.praktijkopleider}}
-          <br />
-          Beoordeling: {{form.beoordeling}}
-          <br />
-          Datum: {{form.datum}}
-          </ion-item>
+    <h1>Technische aspecten</h1>
+    <ion-item>
+      <ion-label>Voorbereiding werkzaamheden</ion-label>
+      <ion-select [(ngModel)]="vraag1" name="vraag1" multiple="false" interface="action-sheet">
+        <ion-option value="o">Onvoldoende</ion-option>
+        <ion-option value="v">Voldoende</ion-option>
+        <ion-option value="g">Goed</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Plannen en organiseren werkzaamheden</ion-label>
+      <ion-select [(ngModel)]="vraag2" name="vraag2" interface="popover">
+        <ion-option value="o">Onvoldoende</ion-option>
+        <ion-option value="v">Voldoende</ion-option>
+        <ion-option value="g">Goed</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gebruik materiaal en gereedschap</ion-label>
+      <ion-select [(ngModel)]="vraag3" name="vraag3" multiple="true">
+        <ion-option value="o">Onvoldoende</ion-option>
+        <ion-option value="v">Voldoende</ion-option>
+        <ion-option value="g">Goed</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+    <ion-label>Gebruik meetapparatuur</ion-label>
+    <ion-select [(ngModel)]="vraag4" name="vraag4" multiple="true">
+      <ion-option value="o">Onvoldoende</ion-option>
+      <ion-option value="v">Voldoende</ion-option>
+      <ion-option value="g">Goed</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+  <ion-label>Tekeninglezen</ion-label>
+  <ion-select [(ngModel)]="vraag5" name="vraag5" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Ontwerpen / aanpassen schakelingen</ion-label>
+  <ion-select [(ngModel)]="vraag6" name="vraag6" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Ontwerpen / aanpassen installaties</ion-label>
+  <ion-select [(ngModel)]="vraag7" name="vraag7" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Ontwerpen / aanpassen tekeningen</ion-label>
+  <ion-select [(ngModel)]="vraag8" name="vraag8" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Kostenberekening maken</ion-label>
+  <ion-select [(ngModel)]="vraag9" name="vraag9" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Theoretisch inzicht</ion-label>
+  <ion-select [(ngModel)]="vraag10" name="vraag10" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Technisch inzicht</ion-label>
+  <ion-select [(ngModel)]="vraag11" name="vraag11" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Kwaliteit geleverde werk</ion-label>
+  <ion-select [(ngModel)]="vraag12" name="vraag12" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Rapporteren werkzaamheden</ion-label>
+  <ion-select [(ngModel)]="vraag13" name="vraag13" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Houdt zich aan bedrijfsregels</ion-label>
+  <ion-select [(ngModel)]="vraag14" name="vraag14" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Houdt zich aan ARBO-regels</ion-label>
+  <ion-select [(ngModel)]="vraag15" name="vraag15" multiple="true">
+    <ion-option value="o">Onvoldoende</ion-option>
+    <ion-option value="v">Voldoende</ion-option>
+    <ion-option value="g">Goed</ion-option>
+  </ion-select>
+</ion-item>
+
+    <ion-list radio-group [(ngModel)]="vraagX">
+      <ion-list-header>
+        Test versie 1
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Onvoldoende</ion-label>
+        <ion-radio value="onvoldoende"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Voldoende</ion-label>
+        <ion-radio value="voldoende"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Goed</ion-label>
+        <ion-radio value="goed"></ion-radio>
+      </ion-item>
+
+      <ion-list-header>
+        Test versie 2
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Onvoldoende</ion-label>
+        <ion-radio value="onvoldoende"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Voldoende</ion-label>
+        <ion-radio value="voldoende"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Goed</ion-label>
+        <ion-radio value="goed"></ion-radio>
+      </ion-item>
+
+      <ion-list-header>
+        Test versie 3
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Onvoldoende</ion-label>
+        <ion-radio value="onvoldoende"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Voldoende</ion-label>
+        <ion-radio value="voldoende"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Goed</ion-label>
+        <ion-radio value="goed"></ion-radio>
+      </ion-item>
+
     </ion-list>
   </ion-slide>
   <ion-slide>
-    <h1>Meer vragen</h1>
+    <ion-list>
+      <h1>Houdingsaspecten</h1>
+      <ion-item>
+        <ion-label>Verloop eerste contacten bedrijf</ion-label>
+        <ion-select [(ngModel)]="vraag16" name="vraag16" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Houding ten aanzien van collega’s</ion-label>
+        <ion-select [(ngModel)]="vraag17" name="vraag17" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Houding ten aanzien van leidinggevenden</ion-label>
+        <ion-select [(ngModel)]="vraag18" name="vraag18" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Houding ten aanzien van klanten</ion-label>
+        <ion-select [(ngModel)]="vraag19" name="vraag19" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Omgaan met kritiek</ion-label>
+        <ion-select [(ngModel)]="vraag20" name="vraag20" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Komt op tijd</ion-label>
+        <ion-select [(ngModel)]="vraag21" name="vraag21" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Toont eigen initiatief</ion-label>
+        <ion-select [(ngModel)]="vraag22" name="vraag22" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Inzet</ion-label>
+        <ion-select [(ngModel)]="vraag23" name="vraag23" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Toont belangstelling voor het vak</ion-label>
+        <ion-select [(ngModel)]="vraag24" name="vraag24" multiple="true">
+          <ion-option value="o">Onvoldoende</ion-option>
+          <ion-option value="v">Voldoende</ion-option>
+          <ion-option value="g">Goed</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </ion-slide>
 </ion-slides>

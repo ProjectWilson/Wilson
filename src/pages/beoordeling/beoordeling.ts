@@ -111,4 +111,8 @@ nextSlide() {
   this.slides.slideNext(200, true);
 }
 
+selectOptions(){
+  console.log('foller');
+}
+
 }
