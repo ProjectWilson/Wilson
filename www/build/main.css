@@ -25199,6 +25199,10 @@ ion-navbar.toolbar {
   }
 }
 
+.slide-zoom {
+  height: 85%;
+}
+
 #exportButton {
   float: right;
 }
