@@ -16,12 +16,36 @@
           <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
         </ion-item>
         <ion-item>
+          <ion-label floating>Studentnummer</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.studentnummer" name="studentnummer"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label floating>BPV Docent</ion-label>
           <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>BPV Bedrijf</ion-label>
           <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Telefoon BPV Docent</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.telbpvdocent" name="telbpvdocent"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Klas</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.klas" name="klas"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Praktijkopleider</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Telefoon Praktijkopleider</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.telpraktijkopleider" name="telpraktijkopleider"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Email Praktijkopleider</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.emailpraktijkopleider" name="emailpraktijkopleider"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Praktijkopleider</ion-label>
@@ -32,7 +56,7 @@
           <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
           </ion-item>
         <ion-item>
-          <ion-label>Akkoord</ion-label>
+          <ion-label>Akkoord/Handtekening</ion-label>
           <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
         </ion-item>
       </form>
