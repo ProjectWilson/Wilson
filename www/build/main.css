@@ -25203,6 +25203,14 @@ ion-navbar.toolbar {
   height: 85%;
 }
 
+#backButton {
+  float: left;
+}
+
+#forwardButton {
+  float: right;
+}
+
 #exportButton {
   float: right;
 }
