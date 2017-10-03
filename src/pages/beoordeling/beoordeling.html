@@ -1,7 +1,9 @@
 <ion-header>
   <ion-navbar>
     <ion-title text-center>
+      <button ion-button (click)="vorigeSlide()">Vorige</button>
       Beoordelingsformulier.
+      <button ion-button (click)="nextSlide()">Volgende</button>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -35,7 +37,6 @@
         </ion-item>
         <button ion-button type="submit" block>Upload Beoordeling&nbsp;<ion-icon name='add-circle'></ion-icon></button>
       </form>
-      <button ion-button (click)="slideNext(100, true)">Test</button>
   </ion-slide>
   <ion-slide>
     <ion-list>
@@ -58,4 +59,3 @@
     <h1>Meer vragen</h1>
   </ion-slide>
 </ion-slides>
-<ion-slides (ionSlideDidChange)="slideChanged()">
