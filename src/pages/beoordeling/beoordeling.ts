@@ -17,8 +17,6 @@ import { Slides } from 'ionic-angular';
 export class BeoordelingPage {
 
 	forms: FirebaseListObservable<any>;
-  @ViewChild(Slides) slides: Slides;
-
 
   constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
 	   this.forms = af.list('/gesprekforms');
@@ -98,11 +96,6 @@ export class BeoordelingPage {
         buttons: ['Sluit']
       });
       alert.present();
-}
-
-slideChanged() {
-  let currentIndex = this.slides.getActiveIndex();
-  console.log('Current index is', currentIndex);
 }
 
 }

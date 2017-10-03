@@ -33,8 +33,9 @@
           <ion-label>Akkoord</ion-label>
           <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
         </ion-item>
-        <button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>
+        <button ion-button type="submit" block>Upload Beoordeling&nbsp;<ion-icon name='add-circle'></ion-icon></button>
       </form>
+      <button ion-button (click)="slideNext(100, true)">Test</button>
   </ion-slide>
   <ion-slide>
     <ion-list>
@@ -54,7 +55,7 @@
     </ion-list>
   </ion-slide>
   <ion-slide>
-    <h1>Slide 3</h1>
+    <h1>Meer vragen</h1>
   </ion-slide>
 </ion-slides>
 <ion-slides (ionSlideDidChange)="slideChanged()">
