@@ -1,57 +1,104 @@
 <ion-header>
   <ion-navbar>
     <ion-title text-center>
-      Gespreksformulier.
+      Gespreksformulier
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="logForm(todo)">
-      <ion-item>
-        <ion-label floating>Naam Student</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>BPV Docent</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>BPV Bedrijf</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Praktijkopleider</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Beoordeling</ion-label>
-        <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-label>Datum</ion-label>
-        <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
-        </ion-item>
-      <ion-item>
-        <ion-label>Akkoord</ion-label>
-        <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
-      </ion-item>
-      <button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>
-    </form>
 
-  <ion-list>
-    <ion-item *ngFor="let form of forms | async">
-        Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
-        <br />
-        BPV Docent: {{form.bpvdocent}}
-        <br />
-        BPV Bedrijf: {{form.bpvbedrijf}}
-        <br />
-        Praktijkopleider: {{form.praktijkopleider}}
-        <br />
-        Beoordeling: {{form.beoordeling}}
-        <br />
-        Datum: {{form.datum}}
-        </ion-item>
-  </ion-list>
+    <ion-slides>
+        <ion-slide>
+
+          <form (ngSubmit)="inputEnable()" ng-app="myApp" ng-controller="myCtrl">
+              <ion-item>
+                <ion-label floating>Student</ion-label>
+                <ion-input type="text" [(ngModel)]="todo.naam" name="naam" disabled></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>BPV Bedrijf</ion-label>
+                  <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf" disabled></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>BPV Docent</ion-label>
+                <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent" disabled></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Praktijkopleider</ion-label>
+                <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider" disabled></ion-input>
+              </ion-item>
+              <!--<ion-item>-->
+                <!--<ion-label floating>Beoordeling</ion-label>-->
+                <!--<ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>-->
+              <!--</ion-item>-->
+              <ion-item>
+                <ion-label>Begindatum BPV</ion-label>
+                <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
+                </ion-item>
+
+              <div class="checkbox-wrapper">
+
+                  <ion-item class="checkbox-bol">
+                      <ion-label>BOL</ion-label>
+                      <ion-checkbox [(ngModel)]="todo.bol" name="bol" disabled></ion-checkbox>
+                  </ion-item>
+                  <ion-item class="checkbox-bbl">
+                      <ion-label>BBL</ion-label>
+                      <ion-checkbox [(ngModel)]="todo.bbl" name="bbl" disabled></ion-checkbox>
+                  </ion-item>
+
+              </div>
+
+              <ion-item class="checkbox-accept">
+                  <ion-label>Akkoord</ion-label>
+                  <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
+              </ion-item>
+              <button ion-button type="submit" block>Studentgegevens aanpassen</button>
+              <!--<button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>-->
+          </form>
+
+        </ion-slide>
+
+        <ion-slide>
+
+            <form (ngSubmit)="formSendConversationSurvey()" ng-app="myApp" ng-controller="myCtrl">
+                <ion-item>
+                    <ion-label>Begindatum BPV</ion-label>
+                    <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Beoordeling</ion-label>
+                    <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
+                </ion-item>
+                <button ion-button type="submit" block>Versturen</button>
+                <!--<button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>-->
+            </form>
+        </ion-slide>
+
+        <ion-slide>
+
+            <ion-list>
+                <ion-item *ngFor="let form of forms | async">
+                    Student: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
+                    <br />
+                    BPV Docent: {{form.bpvdocent}}
+                    <br />
+                    BPV Bedrijf: {{form.bpvbedrijf}}
+                    <br />
+                    Praktijkopleider: {{form.praktijkopleider}}
+                    <br />
+                    Beoordeling: {{form.beoordeling}}
+                    <br />
+                    Begindatum BPV: {{form.datum}}
+                </ion-item>
+            </ion-list>
+
+        </ion-slide>
+
+
+    </ion-slides>
+
+
+
 </ion-content>

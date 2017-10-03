@@ -20,26 +20,62 @@ export class FormPage {
   }
 
   todo = {}
-  logForm(id) {
-          if(id.datum == null)
-          {
-              let date = new Date;
-              let year = date.getFullYear();
-              let month = date.getMonth() + 1;
-              let day = date.getDate();
-              let datum = year + '-' + month + '-' + day;
+    logForm(id) {
+      if(id.datum == null)
+        {
+          let date = new Date;
+          let year = date.getFullYear();
+          let month = date.getMonth() + 1;
+          let day = date.getDate();
+          let datum = year + '-' + month + '-' + day;
 
-              this.todo['datum'] = datum;
-              console.log(1);
-          }
-          if(id.akkoord == true)
-          {
-              this.forms.push(this.todo);
-          }
-          else{
-            this.presentAlert();
-          }
+          this.todo['datum'] = datum;
+          console.log(1);
+        }
+
+
+      if(id.akkoord == true)
+      {
+          this.forms.push(this.todo);
       }
+      else{
+        this.presentAlert();
+      }
+    }
+
+    inputEnable() {
+        document.querySelector('input[name="bpvdocent"]').removeAttribute('disabled');
+        document.querySelector('input[name="praktijkopleider"]').removeAttribute('disabled');
+
+    }
+    // test(id) {
+    //     // $scope.editEmail = true;
+    //
+    //     let app = angular.module('myApp', []);
+    //     app.controller('myCtrl', function($scope) {
+    //         $scope.carname = "Volvo";
+    //     });
+    // }
+    //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public download(id) {
           console.log(id.naam);
