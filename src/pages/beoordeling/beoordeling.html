@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Beoordelingsformulier.
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-slides>
+  <ion-slide>
+    <form (ngSubmit)="logForm(todo)">
+        <ion-item>
+          <ion-label floating>Naam Student</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>BPV Docent</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>BPV Bedrijf</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Praktijkopleider</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Datum</ion-label>
+          <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label>Akkoord</ion-label>
+          <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
+        </ion-item>
+        <button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>
+      </form>
+  </ion-slide>
+  <ion-slide>
+    <ion-list>
+      <ion-item *ngFor="let form of forms | async">
+          Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
+          <br />
+          BPV Docent: {{form.bpvdocent}}
+          <br />
+          BPV Bedrijf: {{form.bpvbedrijf}}
+          <br />
+          Praktijkopleider: {{form.praktijkopleider}}
+          <br />
+          Beoordeling: {{form.beoordeling}}
+          <br />
+          Datum: {{form.datum}}
+          </ion-item>
+    </ion-list>
+  </ion-slide>
+  <ion-slide>
+    <h1>Slide 3</h1>
+  </ion-slide>
+</ion-slides>
+<ion-slides (ionSlideDidChange)="slideChanged()">
