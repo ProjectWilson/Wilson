@@ -25211,6 +25211,10 @@ ion-navbar.toolbar {
   float: right;
 }
 
+.toolbar-title {
+  white-space: unset;
+}
+
 #exportButton {
   float: right;
 }

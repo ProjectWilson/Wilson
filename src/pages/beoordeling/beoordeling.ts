@@ -23,6 +23,10 @@ export class BeoordelingPage {
 	   this.forms = af.list('/gesprekforms');
   }
 
+  initialSchijt(){
+    console.log('test');
+  }
+
   todo = {}
   logForm(id) {
           if(id.datum == null)
@@ -105,14 +109,14 @@ slideChanged() {
 }
 
 vorigeSlide() {
+  this.slides.lockSwipeToPrev(false);
   this.slides.slidePrev(200, true);
+  this.slides.lockSwipeToPrev(true);
 }
 nextSlide() {
+  this.slides.lockSwipeToNext(false);
   this.slides.slideNext(200, true);
-}
-
-selectOptions(){
-  console.log('foller');
+  this.slides.lockSwipeToNext(true);
 }
 
 }
