@@ -25214,3 +25214,8 @@ ion-navbar.toolbar {
 #exportButton {
   float: right;
 }
+
+.navButtonke {
+  width: 49%;
+  height: 25%;
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { FormPage } from '../form/form';
+import { BeoordelingPage } from '../beoordeling/beoordeling';
 
 @Component({
   selector: 'page-home',
@@ -14,5 +15,13 @@ export class HomePage {
 
   }
 
-
+  linkPage(pageke) {
+    console.log(pageke);
+    if(pageke == 'FormPage'){
+      this.navCtrl.push(FormPage);
+    }
+    else if(pageke == 'BeoordelingPage'){
+      this.navCtrl.push(BeoordelingPage)
+    }
+  }
 }
