@@ -1,0 +1,30 @@
+page-beoordeling {
+
+}
+
+.slide-zoom {
+height: 85%;
+}
+
+#backButton{
+  float: left;
+}
+
+#forwardButton{
+  float: right;
+}
+
+.toolbar-title{
+white-space: unset;
+}
+
+ion-slide{
+  overflow-y: scroll;
+}
+
+#backButton{
+  visiblity: hidden;
+}
+#forwardButton{
+  visiblity: visible;
+}
