@@ -21,11 +21,33 @@ export class FormPage {
        this.gebruikers = af.list('/gebruikers');
   }
 
-test = {};
-  StudentnummerInput;
-  autofill(){
-    console.log(this.gesprek);
-  }
+	studentenlijst = {
+		
+		'studentnummer': '',
+		'roepnaam': '',
+		'voorvoegsel': '',
+		'achternaam': '',
+		'telefoon': '',
+		'woonplaats': '',
+		'opleiding': '',
+		'email': '',
+		'praktijkopleider': '',
+		'bedrijf': '',
+		'bpvtelefoon': '',
+		'bpvbegelijder': ''
+	};
+	StudentnummerInput;
+	autofill()
+	{
+		console.log(this.studentenlijst);
+		this.gesprek = {
+			'naam' : this.studentenlijst.roepnaam + this.studentenlijst.voorvoegsel + this.studentenlijst.achternaam,
+			'studentnummer' : this.studentenlijst.studentnummer ,
+			'bpvdocent' : this.studentenlijst.bpvbegelijder,
+			'bpvbedrijf' : this.studentenlijst.bedrijf,
+			'praktijkopleider' : this.studentenlijst.praktijkopleider
+		};
+	}	
 
   gesprek = {};
   logForm(id) {
