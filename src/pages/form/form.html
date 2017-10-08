@@ -8,6 +8,7 @@
 
 <ion-content padding>
 
+
 	<ion-item *ngFor="let student of gebruikers | async; let i = index" hidden>
 		<ion-input [(ngModel)]="studentenlijst.studentnummer" value={{student.studentnummer}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.roepnaam" value={{student.roepnaam}}></ion-input>
@@ -16,20 +17,20 @@
 		<ion-input [(ngModel)]="studentenlijst.telefoon" value={{student.telefoon}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.woonplaats" value={{student.woonplaats}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.opleiding" value={{student.opleiding}}></ion-input>
-		<ion-input [(ngModel)]="studentenlijst.bpvbegelijder" value={{student.bpv-begelijder}}></ion-input>
+		<ion-input [(ngModel)]="studentenlijst.bpvbegeleider" value={{student.bpv-begeleider}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.email" value={{student.email}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.praktijkopleider" value={{student.praktijkopleider}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.bedrijf" value={{student.bedrijf}}></ion-input>
 		<ion-input [(ngModel)]="studentenlijst.bpv-telefoon" value={{student.bpv-telefoon}}></ion-input>
 	</ion-item>
-	
+
 
 
 	<datalist id="studentenlijst">
-		<option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
+		<option *ngFor="let student of gebruikers | async" value={{student.$key}}>
 	</datalist>
 
-	<ion-input list="studentenlijst" placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input>
+	<ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input>
 
 
   <form (ngSubmit)="logForm(gesprek)">

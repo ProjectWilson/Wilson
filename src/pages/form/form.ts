@@ -22,7 +22,6 @@ export class FormPage {
   }
 
 	studentenlijst = {
-		
 		'studentnummer': '',
 		'roepnaam': '',
 		'voorvoegsel': '',
@@ -34,20 +33,21 @@ export class FormPage {
 		'praktijkopleider': '',
 		'bedrijf': '',
 		'bpvtelefoon': '',
-		'bpvbegelijder': ''
+		'bpvbegeleider': ''
 	};
+
 	StudentnummerInput;
-	autofill()
+	autofill(test)
 	{
-		console.log(this.studentenlijst);
+		console.log(test);
 		this.gesprek = {
 			'naam' : this.studentenlijst.roepnaam + this.studentenlijst.voorvoegsel + this.studentenlijst.achternaam,
 			'studentnummer' : this.studentenlijst.studentnummer ,
-			'bpvdocent' : this.studentenlijst.bpvbegelijder,
+			'bpvdocent' : this.studentenlijst.bpvbegeleider,
 			'bpvbedrijf' : this.studentenlijst.bedrijf,
 			'praktijkopleider' : this.studentenlijst.praktijkopleider
 		};
-	}	
+	}
 
   gesprek = {};
   logForm(id) {
