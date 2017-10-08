@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Gespreksformulier.
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let form of forms | async">
+      <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
+        <table>
+        <tr>
+          <th>Studentgegevens</th>
+        </tr>
+        <tr>
+          <td>Studentnaam: </td><td>{{form.naam}}</td>
+        </tr>
+        <tr>
+          <td>Studentnummer: </td><td>{{form.studentnummer}}</td>
+        </tr>
+        <tr>
+          <td>Klas: </td><td>{{form.klas}}</td>
+        </tr>
+        <tr>
+          <td>BPV Docent: </td><td>{{form.bpvdocent}}</td>
+        </tr>
+        <tr>
+          <td>BPV Bedrijf: </td><td>{{form.bpvbedrijf}}</td>
+        </tr>
+        <tr>
+          <td>Telefoon BPV:  </td><td>{{form.telbpvdocent}}</td>
+        </tr>
+        <tr>
+          <td>Praktijkopleider</td><td>{{form.praktijkopleider}}</td>
+        </tr>
+        <tr>
+          <td>Telefoon Praktijkopleider </td><td>{{form.telpraktijkopleider}}</td>
+        </tr>
+        <tr>
+          <td>Email Praktijkopleider</td><td>{{form.emailpraktijkopleider}}</td>
+        </tr>
+        <tr>
+          <td>Datum: </td><td>{{form.datum}}</td>
+        </tr>
+
+
+
+        <tr>
+        <th>Technische Aspecten</th>
+        </tr>
+        <tr>
+          <td>1.  Voorbereiding werkzaamheden: </td><td>{{form.vraag1}}</td>
+        </tr>
+        <tr>
+          <td>2.  Plannen en organiseren werkzaamheden: </td><td>{{form.vraag2}}</td>
+        </tr>
+        <tr>
+          <td>3.  Gebruik materiaal en gereedschap: </td><td>{{form.vraag3}}</td>
+        </tr>
+        <tr>
+          <td>4.  Gebruik meetapparatuur: </td><td>{{form.vraag4}}</td>
+        </tr>
+        <tr>
+          <td>5.  Tekeninglezen: </td><td>{{form.vraag5}}</td>
+        </tr>
+        <tr>
+          <td>6.  Ontwerpen / aanpassen tekeningen: </td><td>{{form.vraag6}}</td>
+        </tr>
+        <tr>
+          <td>7.  Ontwerpen / aanpassen schakelingen: </td><td>{{form.vraag7}}</td>
+        </tr>
+        <tr>
+          <td>8.  Ontwerpen / aanpassen installaties: </td><td>{{form.vraag8}}</td>
+        </tr>
+        <tr>
+          <td>9.  Kostenberekening maken: </td><td>{{form.vraag9}}</td>
+        </tr>
+        <tr>
+          <td>10. Theoretisch inzicht: </td><td>{{form.vraag10}}</td>
+        </tr>
+        <tr>
+          <td>11. Technisch inzicht: </td><td>{{form.vraag11}}</td>
+        </tr>
+        <tr>
+          <td>12. Kwaliteit geleverde werk: </td><td>{{form.vraag12}}</td>
+        </tr>
+        <tr>
+          <td>13. Rapporteren werkzaamheden: </td><td>{{form.vraag13}}</td>
+        </tr>
+        <tr>
+          <td>14. Houdt zich aan de bedrijgsregels: </td><td>{{form.vraag14}}</td>
+        </tr>
+        <tr>
+          <td>15.  Houdt zich aan de ARBO-regels: </td><td>{{form.vraag15}}</td>
+        </tr>
+        <tr>
+          <td>Mogelijke opmerking en/of aandachtspunten: </td><td>{{form.opmerkingTech}}</td>
+        </tr>
+        <tr>
+          <td>Beoordeling Technische Aspecten:</td><td>{{form.rate1}}</td>
+        </tr>
+
+        <tr>
+        <th>Houdingsaspecten</th>
+        </tr>
+        <tr>
+          <td>16. Verloop van eerste contacten bedrijf: </td><td>{{form.vraag16}}</td>
+        </tr>
+        <tr>
+          <td>17. Houding ten aanzien van collega's:  </td><td>{{form.vraag17}}</td>
+        </tr>
+        <tr>
+          <td>18. Houding ten aanzien van leidinggevenden: </td><td>{{form.vraag18}}</td>
+        </tr>
+        <tr>
+          <td>19. Houding ten aanzien van klanten: </td><td>{{form.vraag19}}</td>
+        </tr>
+        <tr>
+          <td>20. Omgaan met kritiek: </td><td>{{form.vraag20}}</td>
+        </tr>
+        <tr>
+          <td>21. Komt op tijd:</td><td>{{form.vraag21}}</td>
+        </tr>
+        <tr>
+          <td>22. Toont eigen initiatief:</td><td>{{form.vraag22}}</td>
+        </tr>
+        <tr>
+          <td>23. Inzet:  </td><td>{{form.vraag23}}</td>
+        </tr>
+        <tr>
+          <td>24. Toont belangstelling voor het vak:  </td><td>{{form.vraag24}}</td>
+        </tr>
+        <tr>
+          <td>Mogelijke opmerking en/of aandachtspunten: </td><td>{{form.opmerkingHouding}}</td>
+        </tr>
+        <tr>
+          <td>Beoordeling houdingsaspecten: </td><td>{{form.rate2}}</td>
+        </tr>
+
+        </table>
+        <hr />
+        </ion-item>
+
+  </ion-list>
+</ion-content>
