@@ -25215,6 +25215,26 @@ ion-navbar.toolbar {
   white-space: unset;
 }
 
+ion-slide {
+  overflow-y: scroll;
+}
+
+#backButton {
+  visiblity: hidden;
+}
+
+#forwardButton {
+  visiblity: visible;
+}
+
+#exportButton {
+  float: right;
+}
+
+#exportButton {
+  float: right;
+}
+
 #exportButton {
   float: right;
 }
