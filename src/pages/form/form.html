@@ -5,16 +5,17 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+
     <!--linkerslide gelijk met rechter qua margin top-->
     <!--radio buttons naar firebase fixen, krijg geen radio button value mee...-->
     <!--Beoordeling textarea full height samen met button-->
-    <!--Als je op 'studentgegevens aanpassen drukt' dan overduidelijk open input velden aangeven-->
+    <!--Studentgegevens aanpassen button effects-->
 
 <ion-content padding>
 
     <form (ngSubmit)="logForm(id)">
 
-        <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slides>
 
             <ion-slide>
 

@@ -3,9 +3,6 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
-import jsPDF from 'jspdf'
-declare let jsPDF;
-
 @Component({
   selector: 'page-form',
   templateUrl: 'form.html'
@@ -56,10 +53,5 @@ export class FormPage {
         });
         alert.present();
     }
-
-
-
-
-
 
 }
