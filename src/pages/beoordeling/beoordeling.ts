@@ -106,7 +106,22 @@ export class BeoordelingPage {
 
 slideChanged() {
   let currentIndex = this.slides.getActiveIndex();
+  let isBeg = this.slides.isBeginning();
+  let isEnd = this.slides.isEnd();
+  console.log(isEnd);
   console.log('Current index is', currentIndex);
+  if(isBeg === true){
+    document.getElementById('backButton').style.visibility = 'hidden';
+    console.log('is begin');
+  }
+  else if(isEnd === true){
+    document.getElementById('forwardButton').style.visibility = 'hidden';
+    console.log('is einde');
+  }
+  else{
+    document.getElementById('backButton').style.visibility = 'visible';
+    document.getElementById('forwardButton').style.visibility = 'visible';
+  }
 }
 
 vorigeSlide() {
