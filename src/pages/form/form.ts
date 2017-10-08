@@ -19,7 +19,7 @@ export class FormPage {
 	   this.forms = af.list('/gesprekforms');
   }
 
-  todo = {}
+  gesprek = {}
   logForm(id) {
           if(id.datum == null)
           {
@@ -29,12 +29,12 @@ export class FormPage {
               let day = date.getDate();
               let datum = year + '-' + month + '-' + day;
 
-              this.todo['datum'] = datum;
+              this.gesprek['datum'] = datum;
               console.log(1);
           }
           if(id.akkoord == true)
           {
-              this.forms.push(this.todo);
+              this.forms.push(this.gesprek);
           }
           else{
             this.presentAlert();
