@@ -9,10 +9,10 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let form of forms | async">
+      <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
         <table>
         <tr>
           <th>Studentgegevens</th>
-          <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
         </tr>
         <tr>
           <td>Studentnaam: </td><td>{{form.naam}}</td>
@@ -102,30 +102,44 @@
           <td>Beoordeling Technische Aspecten:</td><td>{{form.rate1}}</td>
         </tr>
 
+        <tr>
+        <th>Houdingsaspecten</th>
+        </tr>
+        <tr>
+          <td>16. Verloop van eerste contacten bedrijf: </td><td>{{form.vraag16}}</td>
+        </tr>
+        <tr>
+          <td>17. Houding ten aanzien van collega's:  </td><td>{{form.vraag17}}</td>
+        </tr>
+        <tr>
+          <td>18. Houding ten aanzien van leidinggevenden: </td><td>{{form.vraag18}}</td>
+        </tr>
+        <tr>
+          <td>19. Houding ten aanzien van klanten: </td><td>{{form.vraag19}}</td>
+        </tr>
+        <tr>
+          <td>20. Omgaan met kritiek: </td><td>{{form.vraag20}}</td>
+        </tr>
+        <tr>
+          <td>21. Komt op tijd:</td><td>{{form.vraag21}}</td>
+        </tr>
+        <tr>
+          <td>22. Toont eigen initiatief:</td><td>{{form.vraag22}}</td>
+        </tr>
+        <tr>
+          <td>23. Inzet:  </td><td>{{form.vraag23}}</td>
+        </tr>
+        <tr>
+          <td>24. Toont belangstelling voor het vak:  </td><td>{{form.vraag24}}</td>
+        </tr>
+        <tr>
+          <td>Mogelijke opmerking en/of aandachtspunten: </td><td>{{form.opmerkingHouding}}</td>
+        </tr>
+        <tr>
+          <td>Beoordeling houdingsaspecten: </td><td>{{form.rate2}}</td>
+        </tr>
 
         </table>
-        <h1>Houdingsaspecten</h1>
-        16. Verloop eerste contacten bedrijf: {{form.vraag16}}
-        <br />
-        17. Houding ten aanzien van collega’s: {{form.vraag17}}
-        <br />
-        18. Houding ten aanzien van        leidinggevenden : {{form.vraag18}}
-        <br />
-        19. Houding ten aanzien van klanten: {{form.vraag19}}
-        <br />
-        20. Omgaan met kritiek: {{form.vraag20}}
-        <br />
-        21. Komt op tijd: {{form.vraag21}}
-        <br />
-        22. Toont eigen initiatief: {{form.vraag22}}
-        <br />
-        23. Inzet: {{form.vraag23}}
-        <br />
-        24. Toont belangstelling voor het vak: {{form.vraag24}}
-        <br />
-        Beoordeling houdingsaspecten: {{form.rate2}}
-        <br />
-        Mogelijke opmerking en/of aandachtspunten: {{form.opmerkingHouding}}
         <hr />
         </ion-item>
 
