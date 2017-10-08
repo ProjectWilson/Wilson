@@ -21,3 +21,10 @@ white-space: unset;
 ion-slide{
   overflow-y: scroll;
 }
+
+#backButton{
+  visiblity: hidden;
+}
+#forwardButton{
+  visiblity: visible;
+}

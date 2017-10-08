@@ -25219,6 +25219,14 @@ ion-slide {
   overflow-y: scroll;
 }
 
+#backButton {
+  visiblity: hidden;
+}
+
+#forwardButton {
+  visiblity: visible;
+}
+
 #exportButton {
   float: right;
 }
