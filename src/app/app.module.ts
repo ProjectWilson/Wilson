@@ -7,9 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
+import { FormDBPage } from '../pages/gesprekDB/gesprekDB';
 import { BeoordelingPage } from '../pages/beoordeling/beoordeling';
+import { BeoordelingDBPage } from '../pages/beoordelingDB/beoordelingDB';
 import { TabsPage } from '../pages/tabs/tabs';
-
 
 //import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -32,7 +33,9 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     FormPage,
-    BeoordelingPage
+    FormDBPage,
+    BeoordelingPage,
+    BeoordelingDBPage
   ],
   imports: [
     BrowserModule,
@@ -44,9 +47,11 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    FormPage,
     TabsPage,
-    BeoordelingPage
+    FormPage,
+    FormDBPage,
+    BeoordelingPage,
+    BeoordelingDBPage
   ],
   providers: [
     StatusBar,
