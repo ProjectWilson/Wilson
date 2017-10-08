@@ -3,6 +3,9 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+
 @Component({
   selector: 'page-form',
   templateUrl: 'form.html'
@@ -11,8 +14,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class FormPage {
 
 	forms: FirebaseListObservable<any>;
+    @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
 	   this.forms = af.list('/gesprekforms');
   }
 
