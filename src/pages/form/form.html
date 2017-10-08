@@ -11,14 +11,18 @@
 	<datalist id="studentenlijst">
 		<option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
 	</datalist>
-	
-	<ion-input list="studentenlijst" placeholder="Leerlingnummer" [(ngModel)]="StudentnummerInput" (change)="autofill()"></ion-input>
+
+	<ion-input list="studentenlijst" placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input>
 
 
   <form (ngSubmit)="logForm(gesprek)">
       <ion-item>
         <ion-label floating>Naam Student</ion-label>
         <ion-input type="text" [(ngModel)]="gesprek.naam" name="naam"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Studentnummer</ion-label>
+        <ion-input type="text" [(ngModel)]="gesprek.studentnummer" name="studentnummer"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>BPV Docent</ion-label>
