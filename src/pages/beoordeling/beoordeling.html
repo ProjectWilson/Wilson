@@ -11,59 +11,56 @@
 
 </body>
 <ion-slides>
-  <ion-slide style="overflow-y:scroll">
-    <form (ngSubmit)="logForm(todo)">
+  <ion-slide>
+    <form (ngSubmit)="submitForm(rate)">
         <ion-item>
           <ion-label floating>Naam Student</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.naam" name="naam"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Studentnummer</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.studentnummer" name="studentnummer"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.studentnummer" name="studentnummer"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>BPV Docent</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.bpvdocent" name="bpvdocent"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>BPV Bedrijf</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.bpvbedrijf" name="bpvbedrijf"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Telefoon BPV Docent</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.telbpvdocent" name="telbpvdocent"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.telbpvdocent" name="telbpvdocent"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Klas</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.klas" name="klas"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.klas" name="klas"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Praktijkopleider</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.praktijkopleider" name="praktijkopleider"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Telefoon Praktijkopleider</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.telpraktijkopleider" name="telpraktijkopleider"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.telpraktijkopleider" name="telpraktijkopleider"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Email Praktijkopleider</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.emailpraktijkopleider" name="emailpraktijkopleider"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Praktijkopleider</ion-label>
-          <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>
+          <ion-input type="text" [(ngModel)]="rate.emailpraktijkopleider" name="emailpraktijkopleider"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Datum</ion-label>
-          <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
+          <ion-input type="date" [(ngModel)]="rate.datum" name="datum"></ion-input>
           </ion-item>
         <ion-item>
           <ion-label>Akkoord/Handtekening</ion-label>
-          <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
+          <ion-checkbox [(ngModel)]="rate.akkoord" name="akkoord"></ion-checkbox>
         </ion-item>
+        <button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>
       </form>
   </ion-slide>
-  <ion-slide style="overflow-y:scroll">
+  <ion-slide>
     <h1>Technische aspecten</h1>
     <ion-item>
       <ion-label>Voorbereiding werkzaamheden</ion-label>
@@ -200,68 +197,8 @@
     <ion-option value="x">N.v.t.</ion-option>
   </ion-select>
 </ion-item>
-
-    <ion-list radio-group [(ngModel)]="vraagX">
-      <ion-list-header>
-        Test versie 1
-      </ion-list-header>
-
-      <ion-item>
-        <ion-label>Onvoldoende</ion-label>
-        <ion-radio value="onvoldoende"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Voldoende</ion-label>
-        <ion-radio value="voldoende"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Goed</ion-label>
-        <ion-radio value="goed"></ion-radio>
-      </ion-item>
-
-      <ion-list-header>
-        Test versie 2
-      </ion-list-header>
-
-      <ion-item>
-        <ion-label>Onvoldoende</ion-label>
-        <ion-radio value="onvoldoende"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Voldoende</ion-label>
-        <ion-radio value="voldoende"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Goed</ion-label>
-        <ion-radio value="goed"></ion-radio>
-      </ion-item>
-
-      <ion-list-header>
-        Test versie 3
-      </ion-list-header>
-
-      <ion-item>
-        <ion-label>Onvoldoende</ion-label>
-        <ion-radio value="onvoldoende"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Voldoende</ion-label>
-        <ion-radio value="voldoende"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Goed</ion-label>
-        <ion-radio value="goed"></ion-radio>
-      </ion-item>
-
-    </ion-list>
   </ion-slide>
-  <ion-slide style="overflow-y:scroll">
+  <ion-slide>
     <ion-list>
       <h1>Houdingsaspecten</h1>
       <ion-item>

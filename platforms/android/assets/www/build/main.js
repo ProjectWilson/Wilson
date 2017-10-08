@@ -1,85 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 143:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 143;
-
-/***/ }),
-
-/***/ 184:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 184;
-
-/***/ }),
-
-/***/ 228:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_form__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(270);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var TabsPage = (function () {
-    function TabsPage() {
-        this.tab1Root = __WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */];
-        this.tab2Root = __WEBPACK_IMPORTED_MODULE_1__form_form__["a" /* FormPage */];
-    }
-    return TabsPage;
-}());
-TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Gespreksformulier" tabIcon="clipboard"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/
-    }),
-    __metadata("design:paramtypes", [])
-], TabsPage);
-
-//# sourceMappingURL=tabs.js.map
-
-/***/ }),
-
-/***/ 229:
+/***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jspdf__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -170,13 +99,16 @@ FormPage = __decorate([
 
 /***/ }),
 
-/***/ 270:
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeoordelingPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jspdf__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -188,15 +120,221 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
+
+var BeoordelingPage = (function () {
+    function BeoordelingPage(navCtrl, af, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
+        this.todo = {};
+        this.forms = af.list('/gesprekforms');
+    }
+    BeoordelingPage.prototype.initialSchijt = function () {
+        console.log('test');
+    };
+    BeoordelingPage.prototype.logForm = function (id) {
+        if (id.datum == null) {
+            var date = new Date;
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var datum = year + '-' + month + '-' + day;
+            this.todo['datum'] = datum;
+            console.log(1);
+        }
+        if (id.akkoord == true) {
+            this.forms.push(this.todo);
+        }
+        else {
+            this.presentAlert();
+        }
+    };
+    BeoordelingPage.prototype.download = function (id) {
+        console.log(id.naam);
+        var pageWidth = 8.5, lineHeight = 1.2, margin = 0.5, maxLineWidth = pageWidth - margin * 2, fontSize = 14, ptsPerInch = 72, oneLineHeight = fontSize * lineHeight / ptsPerInch, text = 'Naam: \n' + id.naam + '\n\n' +
+            'BPV Docent: \n' + id.bpvdocent + '\n\n' +
+            'BPV Bedrijf: \n' + id.bpvbedrijf + '\n\n' +
+            'Praktijkopleider: \n' + id.praktijkopleider + '\n\n' +
+            'Datum: \n' + id.datum + '\n\n' +
+            'Beoordeling: \n' + id.beoordeling + '\n\n';
+        var doc = new __WEBPACK_IMPORTED_MODULE_3_jspdf___default.a({
+            unit: 'in',
+            lineHeight: lineHeight
+        }).setProperties({ title: 'Gespreksformulier' });
+        var textLines = doc
+            .setFont('helvetica', 'neue')
+            .setFontSize(fontSize)
+            .splitTextToSize(text, maxLineWidth);
+        //Create de tekst en pdf format
+        doc.text(textLines, margin, margin + 2 * oneLineHeight);
+        var textHeight = textLines.length * fontSize * lineHeight / ptsPerInch;
+        doc
+            .setFontStyle('bold')
+            .text('Gespreksformulier:', margin, margin + oneLineHeight);
+        //maakt rectangles
+        doc.setLineWidth(0);
+        doc.rect(margin, textHeight + 3, 3, oneLineHeight + 1);
+        doc.text('Handtekening Student', margin, textHeight + 2.5);
+        doc.rect(margin + 4, textHeight + 3, 3, oneLineHeight + 1);
+        doc.text('Handtekening Begeleider', margin + 4, textHeight + 2.5);
+        doc.save('Test.pdf');
+    };
+    BeoordelingPage.prototype.presentAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Akkoord',
+            subTitle: 'Ga akkoord met het formulier',
+            buttons: ['Sluit']
+        });
+        alert.present();
+    };
+    BeoordelingPage.prototype.slideChanged = function () {
+        var currentIndex = this.slides.getActiveIndex();
+        console.log('Current index is', currentIndex);
+    };
+    BeoordelingPage.prototype.vorigeSlide = function () {
+        this.slides.lockSwipeToPrev(false);
+        this.slides.slidePrev(200, true);
+        this.slides.lockSwipeToPrev(true);
+    };
+    BeoordelingPage.prototype.nextSlide = function () {
+        this.slides.lockSwipeToNext(false);
+        this.slides.slideNext(200, true);
+        this.slides.lockSwipeToNext(true);
+    };
+    return BeoordelingPage;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Slides */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Slides */])
+], BeoordelingPage.prototype, "slides", void 0);
+BeoordelingPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-beoordeling',template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\beoordeling\beoordeling.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title text-center>\n\n      Beoordelingsformulier.\n\n      <button id=\'backButton\' ion-button (click)="vorigeSlide()"><ion-icon name=\'arrow-back\'></ion-icon>&nbsp; Vorige</button>\n\n      <button id=\'forwardButton\' ion-button (click)="nextSlide()">Volgende &nbsp;<ion-icon name=\'arrow-forward\'></ion-icon></button>\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<body onload=\'initialSchijt()\'>\n\n\n\n</body>\n\n<ion-slides>\n\n  <ion-slide style="overflow-y:scroll">\n\n    <form (ngSubmit)="logForm(todo)">\n\n        <ion-item>\n\n          <ion-label floating>Naam Student</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Studentnummer</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.studentnummer" name="studentnummer"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>BPV Docent</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>BPV Bedrijf</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Telefoon BPV Docent</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.telbpvdocent" name="telbpvdocent"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Klas</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.klas" name="klas"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Praktijkopleider</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Telefoon Praktijkopleider</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.telpraktijkopleider" name="telpraktijkopleider"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Email Praktijkopleider</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.emailpraktijkopleider" name="emailpraktijkopleider"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Praktijkopleider</ion-label>\n\n          <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label>Datum</ion-label>\n\n          <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>\n\n          </ion-item>\n\n        <ion-item>\n\n          <ion-label>Akkoord/Handtekening</ion-label>\n\n          <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>\n\n        </ion-item>\n\n      </form>\n\n  </ion-slide>\n\n  <ion-slide style="overflow-y:scroll">\n\n    <h1>Technische aspecten</h1>\n\n    <ion-item>\n\n      <ion-label>Voorbereiding werkzaamheden</ion-label>\n\n      <ion-select [(ngModel)]="vraag1" name="vraag1" multiple="false" interface="action-sheet">\n\n        <ion-option value="o">Onvoldoende</ion-option>\n\n        <ion-option value="v">Voldoende</ion-option>\n\n        <ion-option value="g">Goed</ion-option>\n\n        <ion-option value="x">N.v.t.</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Plannen en organiseren werkzaamheden</ion-label>\n\n      <ion-select [(ngModel)]="vraag2" name="vraag2" interface="popover">\n\n        <ion-option value="o">Onvoldoende</ion-option>\n\n        <ion-option value="v">Voldoende</ion-option>\n\n        <ion-option value="g">Goed</ion-option>\n\n        <ion-option value="x">N.v.t.</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Gebruik materiaal en gereedschap</ion-label>\n\n      <ion-select [(ngModel)]="vraag3" name="vraag3" multiple="true">\n\n        <ion-option value="o">Onvoldoende</ion-option>\n\n        <ion-option value="v">Voldoende</ion-option>\n\n        <ion-option value="g">Goed</ion-option>\n\n        <ion-option value="x">N.v.t.</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n    <ion-item>\n\n    <ion-label>Gebruik meetapparatuur</ion-label>\n\n    <ion-select [(ngModel)]="vraag4" name="vraag4" multiple="true">\n\n      <ion-option value="o">Onvoldoende</ion-option>\n\n      <ion-option value="v">Voldoende</ion-option>\n\n      <ion-option value="g">Goed</ion-option>\n\n      <ion-option value="x">N.v.t.</ion-option>\n\n    </ion-select>\n\n  </ion-item>\n\n  <ion-item>\n\n  <ion-label>Tekeninglezen</ion-label>\n\n  <ion-select [(ngModel)]="vraag5" name="vraag5" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Ontwerpen / aanpassen schakelingen</ion-label>\n\n  <ion-select [(ngModel)]="vraag6" name="vraag6" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Ontwerpen / aanpassen installaties</ion-label>\n\n  <ion-select [(ngModel)]="vraag7" name="vraag7" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Ontwerpen / aanpassen tekeningen</ion-label>\n\n  <ion-select [(ngModel)]="vraag8" name="vraag8" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Kostenberekening maken</ion-label>\n\n  <ion-select [(ngModel)]="vraag9" name="vraag9" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Theoretisch inzicht</ion-label>\n\n  <ion-select [(ngModel)]="vraag10" name="vraag10" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Technisch inzicht</ion-label>\n\n  <ion-select [(ngModel)]="vraag11" name="vraag11" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Kwaliteit geleverde werk</ion-label>\n\n  <ion-select [(ngModel)]="vraag12" name="vraag12" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Rapporteren werkzaamheden</ion-label>\n\n  <ion-select [(ngModel)]="vraag13" name="vraag13" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Houdt zich aan bedrijfsregels</ion-label>\n\n  <ion-select [(ngModel)]="vraag14" name="vraag14" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label>Houdt zich aan ARBO-regels</ion-label>\n\n  <ion-select [(ngModel)]="vraag15" name="vraag15" multiple="true">\n\n    <ion-option value="o">Onvoldoende</ion-option>\n\n    <ion-option value="v">Voldoende</ion-option>\n\n    <ion-option value="g">Goed</ion-option>\n\n    <ion-option value="x">N.v.t.</ion-option>\n\n  </ion-select>\n\n</ion-item>\n\n  </ion-slide>\n\n  <ion-slide style="overflow-y:scroll">\n\n    <ion-list>\n\n      <h1>Houdingsaspecten</h1>\n\n      <ion-item>\n\n        <ion-label>Verloop eerste contacten bedrijf</ion-label>\n\n        <ion-select [(ngModel)]="vraag16" name="vraag16" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Houding ten aanzien van collega’s</ion-label>\n\n        <ion-select [(ngModel)]="vraag17" name="vraag17" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Houding ten aanzien van leidinggevenden</ion-label>\n\n        <ion-select [(ngModel)]="vraag18" name="vraag18" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Houding ten aanzien van klanten</ion-label>\n\n        <ion-select [(ngModel)]="vraag19" name="vraag19" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Omgaan met kritiek</ion-label>\n\n        <ion-select [(ngModel)]="vraag20" name="vraag20" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Komt op tijd</ion-label>\n\n        <ion-select [(ngModel)]="vraag21" name="vraag21" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Toont eigen initiatief</ion-label>\n\n        <ion-select [(ngModel)]="vraag22" name="vraag22" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Inzet</ion-label>\n\n        <ion-select [(ngModel)]="vraag23" name="vraag23" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Toont belangstelling voor het vak</ion-label>\n\n        <ion-select [(ngModel)]="vraag24" name="vraag24" multiple="true">\n\n          <ion-option value="o">Onvoldoende</ion-option>\n\n          <ion-option value="v">Voldoende</ion-option>\n\n          <ion-option value="g">Goed</ion-option>\n\n          <ion-option value="x">N.v.t.</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-slide>\n\n</ion-slides>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\beoordeling\beoordeling.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+], BeoordelingPage);
+
+//# sourceMappingURL=beoordeling.js.map
+
+/***/ }),
+
+/***/ 146:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 146;
+
+/***/ }),
+
+/***/ 187:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 187;
+
+/***/ }),
+
+/***/ 231:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_form__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beoordeling_beoordeling__ = __webpack_require__(138);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var TabsPage = (function () {
+    function TabsPage() {
+        this.tab1Root = __WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */];
+        this.tab2Root = __WEBPACK_IMPORTED_MODULE_1__form_form__["a" /* FormPage */];
+        this.tab3Root = __WEBPACK_IMPORTED_MODULE_3__beoordeling_beoordeling__["a" /* BeoordelingPage */];
+    }
+    return TabsPage;
+}());
+TabsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Gespreksformulier" tabIcon="clipboard"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Beoordelingsformulier" tabIcon="clipboard"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\tabs\tabs.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], TabsPage);
+
+//# sourceMappingURL=tabs.js.map
+
+/***/ }),
+
+/***/ 272:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_form__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beoordeling_beoordeling__ = __webpack_require__(138);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
 var HomePage = (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
     }
+    HomePage.prototype.linkPage = function (pageke) {
+        console.log(pageke);
+        if (pageke == 'FormPage') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__form_form__["a" /* FormPage */]);
+        }
+        else if (pageke == 'BeoordelingPage') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__beoordeling_beoordeling__["a" /* BeoordelingPage */]);
+        }
+    };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Project Wilson\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  Home page met info, ga naar beoordeling tab.\n\n</ion-content>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\home\home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"c:\Ionic\Wilson\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title text-center>\n\n      Project Wilson\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <button class=\'navButtonke\' ion-button large (click)="linkPage(\'FormPage\')">Gespreksformulier</button>\n\n  <button class=\'navButtonke\' ion-button large (click)="linkPage(\'BeoordelingPage\')">Beoordelingsformulier</button>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"c:\Ionic\Wilson\src\pages\home\home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
 ], HomePage);
@@ -205,13 +343,13 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 271:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(290);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -219,29 +357,31 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 288:
+/***/ 290:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export firebaseConfig */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_form_form__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_form_form__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_beoordeling_beoordeling__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_database__ = __webpack_require__(130);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -273,21 +413,23 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_form_form__["a" /* FormPage */]
+            __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__["a" /* TabsPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_form_form__["a" /* FormPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_beoordeling_beoordeling__["a" /* BeoordelingPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */]),
-            __WEBPACK_IMPORTED_MODULE_9_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-            __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__["b" /* AngularFireDatabaseModule */]
+            __WEBPACK_IMPORTED_MODULE_10_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+            __WEBPACK_IMPORTED_MODULE_11_angularfire2_database__["b" /* AngularFireDatabaseModule */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_7__pages_form_form__["a" /* FormPage */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */]
+            __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__["a" /* TabsPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_beoordeling_beoordeling__["a" /* BeoordelingPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
@@ -300,16 +442,16 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 336:
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(231);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -346,5 +488,5 @@ MyApp = __decorate([
 
 /***/ })
 
-},[271]);
+},[273]);
 //# sourceMappingURL=main.js.map

@@ -20,15 +20,15 @@ export class BeoordelingPage {
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
-	   this.forms = af.list('/gesprekforms');
+	   this.forms = af.list('/beoordeelforms');
   }
 
   initialSchijt(){
     console.log('test');
   }
 
-  todo = {}
-  logForm(id) {
+  rate = {}
+  submitForm(id) {
           if(id.datum == null)
           {
               let date = new Date;
@@ -37,12 +37,13 @@ export class BeoordelingPage {
               let day = date.getDate();
               let datum = year + '-' + month + '-' + day;
 
-              this.todo['datum'] = datum;
+              this.rate['datum'] = datum;
               console.log(1);
           }
           if(id.akkoord == true)
           {
-              this.forms.push(this.todo);
+            console.log(this.rate);
+            this.forms.push(this.rate);
           }
           else{
             this.presentAlert();
