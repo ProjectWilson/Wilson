@@ -25231,7 +25231,32 @@ ion-slide {
   float: right;
 }
 
+#exportButton {
+  float: right;
+}
+
+.gesprekEntries {
+  float: left;
+}
+
+#exportButton {
+  float: right;
+}
+
+@media (max-width: 650px) {
+  #exportButton {
+    width: 100%;
+  }
+}
+
 .navButtonke {
   width: 49%;
   height: 25%;
+}
+
+@media (max-width: 650px) {
+  .navButtonke {
+    width: 100%;
+    height: 25%;
+  }
 }
