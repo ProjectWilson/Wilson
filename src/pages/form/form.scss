@@ -1,25 +1,19 @@
-.checkbox-wrapper {
-  float: right;
+.date-height {
+  height: 67px;
 }
-.checkbox-bol {
-  float: right;
-  width: 50%;
+.radio-bol-bbl {
+  margin-top: 10px;
 }
-.checkbox-bol div.item-inner {
+.slide-zoom {
+  height: 100%;
+}
+.btn-edit-send {
+  padding: 24px !important;
   border: none !important;
 }
-.checkbox-bbl {
-  float: right;
-  width: 50%;
+.item-md {
+  padding-left: 0 !important;
 }
-.checkbox-bbl div.item-inner {
+.remove-border div.item-inner {
   border: none !important;
-}
-.checkbox-accept div.item-inner {
-  border: none !important;
-}
-
-
-#exportButton{
-  float: right;
 }

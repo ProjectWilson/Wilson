@@ -6,56 +6,62 @@
   </ion-navbar>
 </ion-header>
 
+    <!--linkerslide gelijk met rechter qua margin top-->
+    <!--Testen of alles in firebase word doorgevoerd-->
+    <!--Beoordeling textarea full height samen met button-->
+    <!--Als je op 'studentgegevens aanpassen drukt' dan overduidelijk open input velden aangeven-->
+
 <ion-content padding>
 
     <ion-slides>
+
         <ion-slide>
 
           <form (ngSubmit)="inputEnable()" ng-app="myApp" ng-controller="myCtrl">
+
               <ion-item>
                 <ion-label floating>Student</ion-label>
                 <ion-input type="text" [(ngModel)]="todo.naam" name="naam" disabled></ion-input>
               </ion-item>
+
               <ion-item>
                   <ion-label floating>BPV Bedrijf</ion-label>
                   <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf" disabled></ion-input>
               </ion-item>
+
               <ion-item>
                 <ion-label floating>BPV Docent</ion-label>
                 <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent" disabled></ion-input>
               </ion-item>
+
               <ion-item>
                 <ion-label floating>Praktijkopleider</ion-label>
                 <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider" disabled></ion-input>
               </ion-item>
-              <!--<ion-item>-->
-                <!--<ion-label floating>Beoordeling</ion-label>-->
-                <!--<ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>-->
-              <!--</ion-item>-->
-              <ion-item>
+
+              <ion-item class="date-height">
                 <ion-label>Begindatum BPV</ion-label>
                 <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
-                </ion-item>
-
-              <div class="checkbox-wrapper">
-
-                  <ion-item class="checkbox-bol">
-                      <ion-label>BOL</ion-label>
-                      <ion-checkbox [(ngModel)]="todo.bol" name="bol" disabled></ion-checkbox>
-                  </ion-item>
-                  <ion-item class="checkbox-bbl">
-                      <ion-label>BBL</ion-label>
-                      <ion-checkbox [(ngModel)]="todo.bbl" name="bbl" disabled></ion-checkbox>
-                  </ion-item>
-
-              </div>
-
-              <ion-item class="checkbox-accept">
-                  <ion-label>Akkoord</ion-label>
-                  <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
               </ion-item>
-              <button ion-button type="submit" block>Studentgegevens aanpassen</button>
-              <!--<button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>-->
+
+              <ion-list radio-group>
+
+                  <ion-item class="radio-bol-bbl">
+                      <ion-label>BOL</ion-label>
+                      <ion-radio [(ngModel)]="todo.bol" name="bol"></ion-radio>
+                  </ion-item>
+
+                  <ion-item class="radio-bol-bbl">
+                      <ion-label>BBL</ion-label>
+                      <ion-radio [(ngModel)]="todo.bbl" name="bbl"></ion-radio>
+                  </ion-item>
+
+              </ion-list>
+
+              <ion-item class="remove-border">
+                <button ion-button type="submit" class="btn-edit-send" block>Studentgegevens aanpassen</button>
+              </ion-item>
+
           </form>
 
         </ion-slide>
@@ -63,42 +69,25 @@
         <ion-slide>
 
             <form (ngSubmit)="formSendConversationSurvey()" ng-app="myApp" ng-controller="myCtrl">
+
                 <ion-item>
                     <ion-label>Begindatum BPV</ion-label>
                     <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
                 </ion-item>
+
                 <ion-item>
                     <ion-label floating>Beoordeling</ion-label>
                     <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
                 </ion-item>
-                <button ion-button type="submit" block>Versturen</button>
-                <!--<button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>-->
-            </form>
-        </ion-slide>
 
-        <ion-slide>
-
-            <ion-list>
-                <ion-item *ngFor="let form of forms | async">
-                    Student: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
-                    <br />
-                    BPV Docent: {{form.bpvdocent}}
-                    <br />
-                    BPV Bedrijf: {{form.bpvbedrijf}}
-                    <br />
-                    Praktijkopleider: {{form.praktijkopleider}}
-                    <br />
-                    Beoordeling: {{form.beoordeling}}
-                    <br />
-                    Begindatum BPV: {{form.datum}}
+                <ion-item class="remove-border">
+                    <button ion-button type="submit" class="btn-edit-send" block>Versturen</button>
                 </ion-item>
-            </ion-list>
+
+            </form>
 
         </ion-slide>
-
 
     </ion-slides>
-
-
 
 </ion-content>
