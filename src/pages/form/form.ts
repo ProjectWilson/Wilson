@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
+    
 import jsPDF from 'jspdf'
 declare let jsPDF;
 
@@ -21,7 +21,19 @@ export class FormPage {
 	   this.gebruikers = af.list('/gebruikers');
   }
 
-  gesprek = {}
+  StudentnummerInput;
+  autofill(af: AngularFireDatabase) 
+  {
+		this.gebruikers = af.list('/gebruikers', {
+			query: {
+				equalTo: 520735
+			}
+		});
+		console.log(this.gebruikers);
+  }
+  
+  
+  gesprek = {};
   logForm(id) {
           if(id.datum == null)
           {

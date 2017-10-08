@@ -7,16 +7,14 @@
 </ion-header>
 
 <ion-content padding>
-<<<<<<< HEAD
 
 	<datalist id="studentenlijst">
 		<option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
 	</datalist>
 	
-	<ion-input list="studentenlijst" placeholder="Leerlingnummer"></ion-input>
+	<ion-input list="studentenlijst" placeholder="Leerlingnummer" [(ngModel)]="StudentnummerInput" (change)="autofill()"></ion-input>
 
-=======
->>>>>>> 22b121ec4e5ef96bb3ed299a213f08cd74258e19
+
   <form (ngSubmit)="logForm(gesprek)">
       <ion-item>
         <ion-label floating>Naam Student</ion-label>
