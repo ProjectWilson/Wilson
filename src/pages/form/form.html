@@ -5,89 +5,81 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
     <!--linkerslide gelijk met rechter qua margin top-->
-    <!--Testen of alles in firebase word doorgevoerd-->
+    <!--radio buttons naar firebase fixen, krijg geen radio button value mee...-->
     <!--Beoordeling textarea full height samen met button-->
     <!--Als je op 'studentgegevens aanpassen drukt' dan overduidelijk open input velden aangeven-->
 
 <ion-content padding>
 
-    <ion-slides>
+    <form (ngSubmit)="logForm(id)">
 
-        <ion-slide>
+        <ion-slides (ionSlideDidChange)="slideChanged()">
 
-          <form (ngSubmit)="inputEnable()" ng-app="myApp" ng-controller="myCtrl">
-
-              <ion-item>
-                <ion-label floating>Student</ion-label>
-                <ion-input type="text" [(ngModel)]="todo.naam" name="naam" disabled></ion-input>
-              </ion-item>
-
-              <ion-item>
-                  <ion-label floating>BPV Bedrijf</ion-label>
-                  <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf" disabled></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label floating>BPV Docent</ion-label>
-                <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent" disabled></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label floating>Praktijkopleider</ion-label>
-                <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider" disabled></ion-input>
-              </ion-item>
-
-              <ion-item class="date-height">
-                <ion-label>Begindatum BPV</ion-label>
-                <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
-              </ion-item>
-
-              <ion-list radio-group>
-
-                  <ion-item class="radio-bol-bbl">
-                      <ion-label>BOL</ion-label>
-                      <ion-radio [(ngModel)]="todo.bol" name="bol"></ion-radio>
-                  </ion-item>
-
-                  <ion-item class="radio-bol-bbl">
-                      <ion-label>BBL</ion-label>
-                      <ion-radio [(ngModel)]="todo.bbl" name="bbl"></ion-radio>
-                  </ion-item>
-
-              </ion-list>
-
-              <ion-item class="remove-border">
-                <button ion-button type="submit" class="btn-edit-send" block>Studentgegevens aanpassen</button>
-              </ion-item>
-
-          </form>
-
-        </ion-slide>
-
-        <ion-slide>
-
-            <form (ngSubmit)="formSendConversationSurvey()" ng-app="myApp" ng-controller="myCtrl">
+            <ion-slide>
 
                 <ion-item>
-                    <ion-label>Begindatum BPV</ion-label>
-                    <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
+                    <ion-label floating>Student</ion-label>
+                    <ion-input type="text" [(ngModel)]="gesprek.naam" name="naam" disabled></ion-input>
                 </ion-item>
 
                 <ion-item>
+                  <ion-label floating>BPV Bedrijf</ion-label>
+                  <ion-input type="text" [(ngModel)]="gesprek.bpvbedrijf" name="bpvbedrijf" disabled></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>BPV Docent</ion-label>
+                    <ion-input type="text" [(ngModel)]="gesprek.bpvdocent" name="bpvdocent" disabled></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Praktijkopleider</ion-label>
+                    <ion-input type="text" [(ngModel)]="gesprek.praktijkopleider" name="praktijkopleider" disabled></ion-input>
+                </ion-item>
+
+                <ion-item class="date-height">
+                    <ion-label>Begindatum BPV</ion-label>
+                    <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum"></ion-input>
+                </ion-item>
+
+                <!--<ion-list radio-group name="test">-->
+
+                  <!--<ion-item class="radio-bol-bbl">-->
+                      <!--<ion-label>BOL</ion-label>-->
+                      <!--<ion-radio [(ngModel)]="gesprek.bol" name="bol" ng-value="bol"></ion-radio>-->
+                  <!--</ion-item>-->
+
+                  <!--<ion-item class="radio-bol-bbl">-->
+                      <!--<ion-label>BBL</ion-label>-->
+                      <!--<ion-radio [(ngModel)]="gesprek.bbl" name="bbl" ng-value="bbl"></ion-radio>-->
+                  <!--</ion-item>-->
+
+                <!--</ion-list>-->
+
+            </ion-slide>
+
+            <ion-slide>
+
+                <ion-item>
                     <ion-label floating>Beoordeling</ion-label>
-                    <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
+                    <ion-textarea [(ngModel)]="gesprek.beoordeling" name="beoordeling"></ion-textarea>
                 </ion-item>
 
                 <ion-item class="remove-border">
                     <button ion-button type="submit" class="btn-edit-send" block>Versturen</button>
                 </ion-item>
 
-            </form>
+            </ion-slide>
 
-        </ion-slide>
+        </ion-slides>
 
-    </ion-slides>
+    </form>
+
+    <form (ngSubmit)="inputEnable()">
+        <ion-item class="remove-border">
+            <button ion-button class="btn-edit-send" block>Studentgegevens aanpassen</button>
+        </ion-item>
+    </form>
 
 </ion-content>
