@@ -14,12 +14,14 @@ declare let jsPDF;
 export class FormPage {
 
 	forms: FirebaseListObservable<any>;
+	gebruikers: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
 	   this.forms = af.list('/gesprekforms');
+	   this.gebruikers = af.list('/gebruikers');
   }
 
-  todo = {}
+  gesprek = {}
   logForm(id) {
           if(id.datum == null)
           {
@@ -29,12 +31,12 @@ export class FormPage {
               let day = date.getDate();
               let datum = year + '-' + month + '-' + day;
 
-              this.todo['datum'] = datum;
+              this.gesprek['datum'] = datum;
               console.log(1);
           }
           if(id.akkoord == true)
           {
-              this.forms.push(this.todo);
+              this.forms.push(this.gesprek);
           }
           else{
             this.presentAlert();
