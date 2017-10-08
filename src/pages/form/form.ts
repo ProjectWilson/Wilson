@@ -58,4 +58,40 @@ export class FormPage {
         alert.present();
     }
 
+    slideChanged() {
+        let currentIndex = this.slides.getActiveIndex();
+        let isBeg = this.slides.isBeginning();
+        let isEnd = this.slides.isEnd();
+        console.log(isBeg);
+        console.log('Current index is', currentIndex);
+        if(isBeg === true) {
+            document.getElementById('backButton').style.visibility = 'hidden';
+            document.getElementById('editStudentDetails').style.visibility = 'visible';
+            console.log('is begin');
+        }
+        else if(isEnd === true) {
+            document.getElementById('forwardButton').style.visibility = 'hidden';
+            console.log('is einde');
+        }
+        else {
+            document.getElementById('backButton').style.visibility = 'visible';
+            document.getElementById('forwardButton').style.visibility = 'visible';
+        }
+
+        if(isBeg === false) {
+            document.getElementById('editStudentDetails').style.visibility = 'hidden';
+        }
+    }
+
+    vorigeSlide() {
+        this.slides.lockSwipeToPrev(false);
+        this.slides.slidePrev(200, true);
+        this.slides.lockSwipeToPrev(true);
+    }
+    nextSlide() {
+        this.slides.lockSwipeToNext(false);
+        this.slides.slideNext(200, true);
+        this.slides.lockSwipeToNext(true);
+    }
+
 }

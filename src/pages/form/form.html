@@ -1,7 +1,9 @@
 <ion-header>
   <ion-navbar>
     <ion-title text-center>
-      Gespreksformulier
+        Gespreksformulier
+        <button id='backButton' ion-button (click)="vorigeSlide()"><ion-icon name='arrow-back'></ion-icon>&nbsp; Vorige</button>
+        <button id='forwardButton' ion-button (click)="nextSlide()">Volgende &nbsp;<ion-icon name='arrow-forward'></ion-icon></button>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -15,7 +17,7 @@
 
     <form (ngSubmit)="logForm(id)">
 
-        <ion-slides>
+        <ion-slides (ionSlideDidChange)="slideChanged()">
 
             <ion-slide>
 
@@ -79,7 +81,7 @@
 
     <form (ngSubmit)="inputEnable()">
         <ion-item class="remove-border">
-            <button ion-button class="btn-edit-send" block>Studentgegevens aanpassen</button>
+            <button ion-button id="editStudentDetails" class="btn-edit-send" block>Studentgegevens aanpassen</button>
         </ion-item>
     </form>
 
