@@ -8,8 +8,9 @@
   </ion-navbar>
 </ion-header>
 
-    <!--Beoordeling textarea full height samen met button & slider full height op mobiel testen zal wel niet werken -->
     <!--Studentgegevens aanpassen button effects-->
+    <!--Knop 'back' op pagina1 niet weergeven (currentindex meteen ophalen) en textarea 2e slide meteen grootte goedzetten ipv onslidechange-->
+    <!--Slider op mobiel/tablet testen ivm swipe grootte & textarea testen-->
 
 <ion-content padding>
 
@@ -19,7 +20,7 @@
 
             <form (ngSubmit)="inputEnable()">
                 <ion-item class="btn-remove-border">
-                    <button ion-button id="editStudentDetails" class="btn-edit-student-details" block>Studentgegevens wijzigen</button>
+                    <button ion-button id="editStudentDetails" class="btn-edit-student-details" block>Studentgegevens aanpassen</button>
                 </ion-item>
             </form>
 
@@ -89,7 +90,7 @@
                     <ion-textarea [(ngModel)]="gesprek.beoordeling" id="gespreksbeoordeling-textarea" name="beoordeling"></ion-textarea>
                 </ion-item>
 
-                <ion-item class="btn-remove-border">
+                <ion-item class="btn-remove-border" id="btnSendHeight">
                     <button ion-button type="submit" class="btn-gesprek-send" block>Versturen</button>
                 </ion-item>
 

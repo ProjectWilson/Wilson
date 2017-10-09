@@ -20,9 +20,8 @@ export class FormPage {
 
 
     constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
-	   this.forms = af.list('/gesprekforms');
-        // this.slides.autoHeight = true;
-  }
+        this.forms = af.list('/gesprekforms');
+    }
 
   radioValue(value) {
       this.gesprek['BblOrBol'] = value;
@@ -55,7 +54,6 @@ export class FormPage {
     }
 
     inputEnable() {
-        // console.log($ionicSlideBoxDelegate);
         document.querySelector('input[name="bpvdocent"]').removeAttribute('disabled');
         document.querySelector('input[name="praktijkopleider"]').removeAttribute('disabled');
     }
@@ -88,16 +86,7 @@ export class FormPage {
             document.getElementById('backButton').style.visibility = 'visible';
             document.getElementById('forwardButton').style.visibility = 'visible';
         }
-
-        // nog ff de hoogte van de knop en de footer pakken en die vanaf de slide hoogte aftrekken = textarea hoogte ^^
-
-        // console.log(document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = "500px");
-        // console.log(document.getElementById('textarea-slide').offsetHeight);
-        //
-        // document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight + 'px';
-        // document.getElementById('gespreksbeoordeling-textarea').childNodes[2].clientHeight = document.body.scrollHeight;
-
-
+        document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight - document.getElementById('btnSendHeight').offsetHeight - document.getElementById('footer-tabs').getElementsByTagName('div')[0].offsetHeight + 'px';
     }
 
     vorigeSlide() {
@@ -110,4 +99,12 @@ export class FormPage {
         this.slides.slideNext(200, true);
         this.slides.lockSwipeToNext(true);
     }
+
 }
+
+// window.onload = () => {
+    // console.log(this.slides.getActiveIndex());
+    // document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight - document.getElementById('btnSendHeight').offsetHeight - document.getElementById('footer-tabs').getElementsByTagName('div')[0].offsetHeight + 'px';
+
+// };
+
