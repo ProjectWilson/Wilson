@@ -8,22 +8,15 @@ www/build/main.js.map
 www/build/main.css
 /www/build/vendor.js
 
-www
 
-/**/www/build/main.js.map
-/**/www/build/main.css
-/**/www/build/vendor.js
 
-/**/www/build/*
-
-www/build/*
-
-build/*
-
-*.map
-
-/**/build/*
-
-/www/build/*
-
-*.map
+demos/node_modules
+demos/polyfills
+demos/css
+demos/fonts
+demos/src/**/*.js
+demos/src/**/*.map
+demos/src/**/*.ngfactory.ts
+demos/src/**/*.d.ts
+demos/src/**/*.metadata.json
+demos/src/**/*.css.shim.ts
