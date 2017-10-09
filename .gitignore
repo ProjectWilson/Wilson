@@ -2,3 +2,7 @@ www/build/main.js
 .idea/
 www/build/main.js
 www/build/vendor.js.map
+
+.sourcemaps/main.js.map
+www/build/main.js.map
+www/build/vendor.js
