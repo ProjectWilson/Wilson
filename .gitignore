@@ -12,3 +12,5 @@ www/build/main.css
 /**/www/build/main.js.map
 /**/www/build/main.css
 /**/www/build/vendor.js
+
+/**/www/build/*

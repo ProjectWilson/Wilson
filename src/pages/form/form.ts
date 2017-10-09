@@ -89,6 +89,8 @@ export class FormPage {
             document.getElementById('forwardButton').style.visibility = 'visible';
         }
 
+        // nog ff de hoogte van de knop en de footer pakken en die vanaf de slide hoogte aftrekken = textarea hoogte ^^
+
         // console.log(document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = "500px");
         // console.log(document.getElementById('textarea-slide').offsetHeight);
         //
