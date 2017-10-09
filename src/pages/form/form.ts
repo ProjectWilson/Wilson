@@ -18,6 +18,7 @@ export class FormPage {
 
     constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
 	   this.forms = af.list('/gesprekforms');
+        // this.slides.autoHeight = true;
   }
 
   gesprek = {}
@@ -48,7 +49,6 @@ export class FormPage {
         document.querySelector('input[name="bpvdocent"]').removeAttribute('disabled');
         document.querySelector('input[name="praktijkopleider"]').removeAttribute('disabled');
     }
-
     presentAlert() {
         let alert = this.alertCtrl.create({
             title: 'Akkoord',
@@ -66,11 +66,12 @@ export class FormPage {
         console.log('Current index is', currentIndex);
         if(isBeg === true) {
             document.getElementById('backButton').style.visibility = 'hidden';
-            document.getElementById('editStudentDetails').style.visibility = 'visible';
+            document.getElementById('forwardButton').style.visibility = 'visible';
             console.log('is begin');
         }
         else if(isEnd === true) {
             document.getElementById('forwardButton').style.visibility = 'hidden';
+            document.getElementById('backButton').style.visibility = 'visible';
             console.log('is einde');
         }
         else {
@@ -78,9 +79,10 @@ export class FormPage {
             document.getElementById('forwardButton').style.visibility = 'visible';
         }
 
-        if(isBeg === false) {
-            document.getElementById('editStudentDetails').style.visibility = 'hidden';
-        }
+        console.log(document.getElementById('gespreksbeoordeling-textarea').childNodes);
+
+        // document.getElementById('gespreksbeoordeling-textarea').childNodes[2].clientHeight = document.body.scrollHeight;
+
     }
 
     vorigeSlide() {
@@ -93,5 +95,11 @@ export class FormPage {
         this.slides.slideNext(200, true);
         this.slides.lockSwipeToNext(true);
     }
+
+    ngAfterViewInit() {
+        this.slides.autoHeight = true;
+    }
+
+
 
 }

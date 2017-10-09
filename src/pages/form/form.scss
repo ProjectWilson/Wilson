@@ -7,13 +7,42 @@
 .slide-zoom {
   height: 100%;
 }
-.btn-edit-send {
+.btn-edit-student-details {
   padding: 24px !important;
-  border: none !important;
+}
+.btn-gesprek-send {
+  padding: 24px !important;
 }
 .item-md {
   padding-left: 0 !important;
 }
-.remove-border div.item-inner {
+.btn-remove-border div.item-inner {
   border: none !important;
+  margin-right: -8px;
+  padding: 0 !important;
 }
+
+#backButton{
+  float: left;
+}
+#forwardButton{
+  float: right;
+}
+
+.toolbar-title{
+  white-space: unset;
+}
+
+//ion-slide{
+//  overflow-y: auto;
+//}
+
+//.slider {
+//  min-height: 100%;
+//  background-color: #eee;
+//}
+//
+//ion-scroll.custom {
+//  height: 100vh !important;
+//  overflow: auto !important;
+//}

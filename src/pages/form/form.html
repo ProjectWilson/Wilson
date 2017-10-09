@@ -8,19 +8,24 @@
   </ion-navbar>
 </ion-header>
 
-    <!--linkerslide gelijk met rechter qua margin top-->
     <!--radio buttons naar firebase fixen, krijg geen radio button value mee...-->
-    <!--Beoordeling textarea full height samen met button-->
+    <!--Beoordeling textarea full height samen met button & slider full height op mobiel testen zal wel niet werken -->
     <!--Studentgegevens aanpassen button effects-->
 
 <ion-content padding>
 
-    <form (ngSubmit)="logForm(id)">
+    <ion-slides (ionSlideDidChange)="slideChanged()">
 
-        <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
 
-            <ion-slide>
+            <form (ngSubmit)="inputEnable()">
+                <ion-item class="btn-remove-border">
+                    <button ion-button id="editStudentDetails" class="btn-edit-student-details" block>Studentgegevens wijzigen</button>
+                </ion-item>
+            </form>
 
+            <form (ngSubmit)="logForm(id)">
+                <!--<ion-scroll class="custom">-->
                 <ion-item>
                     <ion-label floating>Student</ion-label>
                     <ion-input type="text" [(ngModel)]="gesprek.naam" name="naam" disabled></ion-input>
@@ -43,9 +48,9 @@
 
                 <ion-item class="date-height">
                     <ion-label>Begindatum BPV</ion-label>
-                    <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum"></ion-input>
+                    <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum" disabled></ion-input>
                 </ion-item>
-
+                <!--</ion-scroll>-->
                 <!--<ion-list radio-group name="test">-->
 
                   <!--<ion-item class="radio-bol-bbl">-->
@@ -59,30 +64,27 @@
                   <!--</ion-item>-->
 
                 <!--</ion-list>-->
+            </form>
 
-            </ion-slide>
+        </ion-slide>
 
-            <ion-slide>
+        <ion-slide>
+
+            <form (ngSubmit)="logForm(id)">
 
                 <ion-item>
                     <ion-label floating>Beoordeling</ion-label>
-                    <ion-textarea [(ngModel)]="gesprek.beoordeling" name="beoordeling"></ion-textarea>
+                    <ion-textarea [(ngModel)]="gesprek.beoordeling" id="gespreksbeoordeling-textarea" name="beoordeling"></ion-textarea>
                 </ion-item>
 
-                <ion-item class="remove-border">
-                    <button ion-button type="submit" class="btn-edit-send" block>Versturen</button>
+                <ion-item class="btn-remove-border">
+                    <button ion-button type="submit" class="btn-gesprek-send" block>Versturen</button>
                 </ion-item>
 
-            </ion-slide>
+            </form>
 
-        </ion-slides>
+        </ion-slide>
 
-    </form>
-
-    <form (ngSubmit)="inputEnable()">
-        <ion-item class="remove-border">
-            <button ion-button id="editStudentDetails" class="btn-edit-send" block>Studentgegevens aanpassen</button>
-        </ion-item>
-    </form>
+    </ion-slides>
 
 </ion-content>
