@@ -6,6 +6,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 
+// declare var angular: any;
+
 @Component({
   selector: 'page-form',
   templateUrl: 'form.html'
@@ -16,9 +18,14 @@ export class FormPage {
 	forms: FirebaseListObservable<any>;
     @ViewChild(Slides) slides: Slides;
 
+
     constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
 	   this.forms = af.list('/gesprekforms');
         // this.slides.autoHeight = true;
+  }
+
+  radioValue(value) {
+      this.gesprek['BblOrBol'] = value;
   }
 
   gesprek = {}
@@ -42,6 +49,9 @@ export class FormPage {
       // {
       //   this.presentAlert();
       // }
+
+        // als op de knop gedrukt word push
+        // anders
     }
 
     inputEnable() {
@@ -79,8 +89,10 @@ export class FormPage {
             document.getElementById('forwardButton').style.visibility = 'visible';
         }
 
-        console.log(document.getElementById('gespreksbeoordeling-textarea').childNodes);
-
+        // console.log(document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = "500px");
+        // console.log(document.getElementById('textarea-slide').offsetHeight);
+        //
+        // document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight + 'px';
         // document.getElementById('gespreksbeoordeling-textarea').childNodes[2].clientHeight = document.body.scrollHeight;
 
     }
@@ -95,11 +107,4 @@ export class FormPage {
         this.slides.slideNext(200, true);
         this.slides.lockSwipeToNext(true);
     }
-
-    ngAfterViewInit() {
-        this.slides.autoHeight = true;
-    }
-
-
-
 }

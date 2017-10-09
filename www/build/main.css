@@ -25240,3 +25240,7 @@ ion-navbar.toolbar {
 .toolbar-title {
   white-space: unset;
 }
+
+ion-slide {
+  overflow-y: auto;
+}

@@ -8,7 +8,6 @@
   </ion-navbar>
 </ion-header>
 
-    <!--radio buttons naar firebase fixen, krijg geen radio button value mee...-->
     <!--Beoordeling textarea full height samen met button & slider full height op mobiel testen zal wel niet werken -->
     <!--Studentgegevens aanpassen button effects-->
 
@@ -51,24 +50,37 @@
                     <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum" disabled></ion-input>
                 </ion-item>
                 <!--</ion-scroll>-->
-                <!--<ion-list radio-group name="test">-->
 
-                  <!--<ion-item class="radio-bol-bbl">-->
-                      <!--<ion-label>BOL</ion-label>-->
-                      <!--<ion-radio [(ngModel)]="gesprek.bol" name="bol" ng-value="bol"></ion-radio>-->
-                  <!--</ion-item>-->
 
-                  <!--<ion-item class="radio-bol-bbl">-->
-                      <!--<ion-label>BBL</ion-label>-->
-                      <!--<ion-radio [(ngModel)]="gesprek.bbl" name="bbl" ng-value="bbl"></ion-radio>-->
-                  <!--</ion-item>-->
+                <ion-list radio-group>
 
-                <!--</ion-list>-->
+                  <ion-item class="radio-bol-bbl">
+                      <ion-label>BOL</ion-label>
+                      <ion-radio (ionSelect)="radioValue('bol')"></ion-radio>
+                  </ion-item>
+
+                  <ion-item class="radio-bol-bbl">
+                      <ion-label>BBL</ion-label>
+                      <ion-radio (ionSelect)="radioValue('bbl')"></ion-radio>
+                  </ion-item>
+
+                    <!--<ion-item class="radio-bol-bbl" [(ngModel)]="gesprek.bol">-->
+                        <!--<ion-label>BOL</ion-label>-->
+                        <!--<ion-radio value="TIEFUSDING"></ion-radio>-->
+                    <!--</ion-item>-->
+
+                    <!--<ion-item class="radio-bol-bbl">-->
+                        <!--<ion-label>BBL</ion-label>-->
+                        <!--<ion-radio value="WERKGEWOONFFFSZZZZZZZZ"></ion-radio>-->
+                    <!--</ion-item>-->
+
+                </ion-list>
+
             </form>
 
         </ion-slide>
 
-        <ion-slide>
+        <ion-slide id="textarea-slide">
 
             <form (ngSubmit)="logForm(id)">
 
