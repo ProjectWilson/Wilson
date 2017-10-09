@@ -14,3 +14,12 @@ www/build/main.css
 /**/www/build/vendor.js
 
 /**/www/build/*
+
+www/build/*
+
+build/*
+
+
+/**/build/*
+
+/www/build/*

@@ -96,6 +96,7 @@ export class FormPage {
         //
         // document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight + 'px';
         // document.getElementById('gespreksbeoordeling-textarea').childNodes[2].clientHeight = document.body.scrollHeight;
+        document.getElementById('gespreksbeoordeling-textarea').childNodes[2].clientHeight = document.body.scrollHeight;
 
     }
 
