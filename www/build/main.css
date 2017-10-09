@@ -25231,30 +25231,66 @@ ion-slide {
   float: right;
 }
 
-#exportButton {
+#backButton {
+  float: left;
+}
+
+#forwardButton {
   float: right;
 }
 
-<<<<<<< HEAD
+.toolbar-title {
+  white-space: unset;
+}
+
+.slide-zoom {
+  height: 100%;
+}
+
+ion-slide {
+  overflow-y: auto;
+}
+
+.item-md {
+  padding-left: 0 !important;
+}
+
+.date-height {
+  height: 68px;
+}
+
+.radio-bol-bbl {
+  margin-top: 10px;
+}
+
+.btn-remove-border div.item-inner {
+  border: none !important;
+  margin-right: -8px;
+  padding: 0 !important;
+}
+
+.btn-edit-student-details {
+  padding: 24px !important;
+}
+
+.btn-gesprek-send {
+  padding: 24px !important;
+}
+
 .gesprekEntries {
   float: left;
 }
 
-=======
->>>>>>> 63a5098da0e78ad4d8cdeacd8afabeeca6b82439
 #exportButton {
   float: right;
 }
 
-<<<<<<< HEAD
 @media (max-width: 650px) {
   #exportButton {
     width: 100%;
   }
 }
 
-=======
->>>>>>> 63a5098da0e78ad4d8cdeacd8afabeeca6b82439
 .navButtonke {
   width: 49%;
   height: 25%;
