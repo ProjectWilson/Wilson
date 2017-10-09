@@ -5,4 +5,5 @@ www/build/vendor.js.map
 
 .sourcemaps/main.js.map
 www/build/main.js.map
-www/build/vendor.js
+www/build/main.css
+/www/build/vendor.js
