@@ -17,13 +17,30 @@
     <ion-slides (ionSlideDidChange)="slideChanged()">
 
         <ion-slide>
-
+          <ion-item *ngFor="let student of gebruikers | async; let i = index" hidden>
+                  <ion-input [(ngModel)]="studentenlijst.studentnummer" value={{student.studentnummer}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.roepnaam" value={{student.roepnaam}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.voorvoegsel" value={{student.voorvoegsel}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.achternaam" value={{student.achternaam}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.telefoon" value={{student.telefoon}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.woonplaats" value={{student.woonplaats}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.opleiding" value={{student.opleiding}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.bpvbegeleider" value={{student.bpv-begeleider}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.email" value={{student.email}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.praktijkopleider" value={{student.praktijkopleider}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.bedrijf" value={{student.bedrijf}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.bpv-telefoon" value={{student.bpv-telefoon}}></ion-input>
+              </ion-item>
             <form (ngSubmit)="inputEnable()">
                 <ion-item class="btn-remove-border">
                     <button ion-button id="editStudentDetails" class="btn-edit-student-details" block>Studentgegevens aanpassen</button>
                 </ion-item>
             </form>
+            <datalist id="studentenlijst">
+                <option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
+            </datalist>
 
+            <ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input>
             <form (ngSubmit)="logForm(id)">
 
                 <ion-item>
