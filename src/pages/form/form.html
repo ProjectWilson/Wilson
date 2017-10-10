@@ -31,11 +31,15 @@
                   <ion-input [(ngModel)]="studentenlijst.bedrijf" value={{student.bedrijf}}></ion-input>
                   <ion-input [(ngModel)]="studentenlijst.bpv-telefoon" value={{student.bpv-telefoon}}></ion-input>
               </ion-item>
+
+
             <form (ngSubmit)="inputEnable()">
                 <ion-item class="btn-remove-border">
                     <button ion-button id="editStudentDetails" class="btn-edit-student-details" block>Studentgegevens aanpassen</button>
                 </ion-item>
             </form>
+
+
             <datalist id="studentenlijst">
                 <option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
             </datalist>
