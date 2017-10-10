@@ -77,11 +77,8 @@ export class FormPage {
     }
 
     inputEnable() {
-        document.querySelector('input[name="naam"]').removeAttribute('disabled');
-        document.querySelector('input[name="bpvbedrijf"]').removeAttribute('disabled');
         document.querySelector('input[name="bpvdocent"]').removeAttribute('disabled');
         document.querySelector('input[name="praktijkopleider"]').removeAttribute('disabled');
-        document.querySelector('input[name="datum"]').removeAttribute('disabled');
     }
 
     presentAlert() {
