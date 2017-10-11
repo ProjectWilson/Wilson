@@ -21,4 +21,9 @@ export class TabsPage {
 
   }
 
+  gesprekformOnLoad() {
+    document.getElementById('backButton').style.visibility = 'hidden';
+    document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight - document.getElementById('btnSendHeight').offsetHeight - document.getElementById('footer-tabs').getElementsByTagName('div')[0].offsetHeight + 'px';
+  }
+
 }

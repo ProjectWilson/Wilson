@@ -107,7 +107,6 @@ export class FormPage {
             document.getElementById('backButton').style.visibility = 'visible';
             document.getElementById('forwardButton').style.visibility = 'visible';
         }
-        document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight - document.getElementById('btnSendHeight').offsetHeight - document.getElementById('footer-tabs').getElementsByTagName('div')[0].offsetHeight + 'px';
     }
 
     vorigeSlide() {

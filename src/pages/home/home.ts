@@ -16,9 +16,12 @@ export class HomePage {
   }
 
   linkPage(pageke) {
-    console.log(pageke);
+    console.log(typeof(pageke));
     if(pageke == 'FormPage'){
       this.navCtrl.push(FormPage);
+      // GesprekformOnLoad
+      document.getElementById('backButton').style.visibility = 'hidden';
+      document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight - document.getElementById('btnSendHeight').offsetHeight - document.getElementById('footer-tabs').getElementsByTagName('div')[0].offsetHeight + 'px';
     }
     else if(pageke == 'BeoordelingPage'){
       this.navCtrl.push(BeoordelingPage)
