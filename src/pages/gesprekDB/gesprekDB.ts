@@ -10,7 +10,6 @@ import jsPDF from 'jspdf'
 declare let jsPDF;
 
 export interface gesprekforms {
-  akkoord: boolean;
   beoordeling: string;
   bpvbedrijf: string;
   bpvdocent: string;

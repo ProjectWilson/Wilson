@@ -41,11 +41,12 @@
             </form>
 
 
-            <datalist id="studentenlijst">
+            <!-- <datalist id="studentenlijst">
                 <option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
             </datalist>
 
-            <ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input>
+            <ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input> -->
+
             <form (ngSubmit)="logForm(id)">
 
                 <ion-item>
@@ -68,9 +69,9 @@
                     <ion-input type="text" [(ngModel)]="gesprek.praktijkopleider" name="praktijkopleider" disabled></ion-input>
                 </ion-item>
 
-                <ion-item class="date-height">
+                <ion-item>
                     <ion-label>Begindatum BPV</ion-label>
-                    <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum" disabled></ion-input>
+                    <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum"></ion-input>
                 </ion-item>
 
 
@@ -92,7 +93,7 @@
 
         </ion-slide>
 
-        <ion-slide id="textarea-slide">
+        <ion-slide>
 
             <form (ngSubmit)="logForm(id)">
 

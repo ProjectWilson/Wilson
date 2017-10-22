@@ -10,7 +10,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 
 export interface beoordeelforms {
-    akkoord: string;
+    akkoord: boolean;
     vraag1: string;
     bpvbedrijf: string;
     bpvdocent: string;
@@ -40,7 +40,7 @@ export class BeoordelingPage {
     console.log('test');
   }
 
-  rate = {}
+  rate = {};
   submitForm(id) {
           if(id.datum == null)
           {
@@ -95,11 +95,13 @@ slideChanged() {
 }
 
 vorigeSlide() {
+  console.log('<');
   this.slides.lockSwipeToPrev(false);
   this.slides.slidePrev(200, true);
   this.slides.lockSwipeToPrev(true);
 }
 nextSlide() {
+    console.log('>');
   this.slides.lockSwipeToNext(false);
   this.slides.slideNext(200, true);
   this.slides.lockSwipeToNext(true);
