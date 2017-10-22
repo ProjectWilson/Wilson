@@ -2,9 +2,23 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 
 import jsPDF from 'jspdf'
 declare let jsPDF;
+
+
+export interface gesprekforms {
+  akkoord: boolean;
+  beoordeling: string;
+  bpvbedrijf: string;
+  bpvdocent: string;
+  datum: string;
+  naam: string;
+  praktijkopleider: string;
+}
 
 @Component({
   selector: 'page-form',
@@ -14,9 +28,21 @@ declare let jsPDF;
 export class FormDBPage {
 
 	forms: FirebaseListObservable<any>;
+  formsCollectionRef: AngularFirestoreCollection<gesprekforms>;
+  form$: Observable<gesprekforms[]>;
 
-  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
+
+  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController, public afs: AngularFirestore) {
 	   this.forms = af.list('/gesprekforms');
+     this.formsCollectionRef = this.afs.collection<gesprekforms>('gesprekforms');
+     this.form$ = this.formsCollectionRef.snapshotChanges().map(actions => {
+       return actions.map(action => {
+         const data = action.payload.doc.data() as gesprekforms;
+         const id = action.payload.doc.id;
+         return { id, ...data };
+       });
+     });
+
   }
 
   gesprek = {}
