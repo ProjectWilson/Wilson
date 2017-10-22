@@ -1,14 +1,13 @@
-
-<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDh7k9Ki0MhGawZqgciedJwftnweljTM3s",
-    authDomain: "shizzlelists-739d1.firebaseapp.com",
-    databaseURL: "https://shizzlelists-739d1.firebaseio.com",
-    projectId: "shizzlelists-739d1",
-    storageBucket: "shizzlelists-739d1.appspot.com",
-    messagingSenderId: "718786568691"
+    apiKey: "AIzaSyDGqmgAJFw39dgU0m6QUMeVXXvunoDZbx0",
+    authDomain: "pwapoc-c9e14.firebaseapp.com",
+    databaseURL: "https://pwapoc-c9e14.firebaseio.com",
+    projectId: "pwapoc-c9e14",
+    storageBucket: "pwapoc-c9e14.appspot.com",
+    messagingSenderId: "464954661500"
   };
   firebase.initializeApp(config);
 </script>

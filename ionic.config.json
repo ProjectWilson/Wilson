@@ -1,8 +1,6 @@
 {
-  "name": "Wilson-Stagetool",
+  "name": "PwaPoc",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "integrations": {}
 }

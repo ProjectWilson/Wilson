@@ -2,16 +2,7 @@ page-about {
 
 }
 
-.gesprekEntries{
-  float: left;
-}
 
 #exportButton{
   float: right;
-}
-
-@media (max-width: 650px){
-  #exportButton{
-    width: 100%;
-  }
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -12,20 +12,21 @@ import { BeoordelingPage } from '../pages/beoordeling/beoordeling';
 import { BeoordelingDBPage } from '../pages/beoordelingDB/beoordelingDB';
 import { TabsPage } from '../pages/tabs/tabs';
 
-//import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
+import * as firebase from 'firebase';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
-//AF2 Settings
-
-export const firebaseConfig = {
+  export const firebaseConfig = {
     apiKey: "AIzaSyC-GkiU9lfJRwjQ2CwkEvGHde284ktI88o",
     authDomain: "projectwilson-c8f35.firebaseapp.com",
     databaseURL: "https://projectwilson-c8f35.firebaseio.com",
     projectId: "projectwilson-c8f35",
     storageBucket: "projectwilson-c8f35.appspot.com",
     messagingSenderId: "122197997808"
-};
+ };
 
 @NgModule({
   declarations: [
@@ -40,8 +41,10 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-	AngularFireModule.initializeApp(firebaseConfig),
-	AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule.enablePersistence(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,7 +58,8 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,
-    SplashScreen
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

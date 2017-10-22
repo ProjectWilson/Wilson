@@ -9,10 +9,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let form of forms | async">
-      <div class="gesprekEntries">
-        Studentnaam: {{form.naam}}
-        <br />
-        BBL/BOL: {{form.BblOrBol}}
+        Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
         <br />
         BPV Docent: {{form.bpvdocent}}
         <br />
@@ -23,8 +20,6 @@
         Beoordeling: {{form.beoordeling}}
         <br />
         Datum: {{form.datum}}
-      </div>
-        <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
         </ion-item>
   </ion-list>
 </ion-content>
