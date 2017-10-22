@@ -58,6 +58,7 @@ export class BeoordelingPage {
             console.log(this.rate);
             //this.forms.push(this.rate);
             this.formsCollectionRef.add(this.rate);
+            this.confirmAlert();
           }
           else{
             this.presentAlert();
@@ -72,7 +73,16 @@ export class BeoordelingPage {
         buttons: ['Sluit']
       });
       alert.present();
-}
+      }
+
+    confirmAlert() {
+    let confirm = this.alertCtrl.create({
+      title: 'Succes',
+      subTitle: 'Gespreksformulier opgeslagen.',
+      buttons: ['Sluit']
+    });
+    confirm.present();
+    }
 
 slideChanged() {
   let currentIndex = this.slides.getActiveIndex();

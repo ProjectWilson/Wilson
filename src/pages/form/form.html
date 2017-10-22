@@ -101,7 +101,10 @@
                     <ion-label floating>Beoordeling</ion-label>
                     <ion-textarea [(ngModel)]="gesprek.beoordeling" id="gespreksbeoordeling-textarea" name="beoordeling"></ion-textarea>
                 </ion-item>
-
+                <ion-item>
+                    <ion-label>Handtekening</ion-label>
+                         <ion-checkbox [(ngModel)]="gesprek.handtekening" name="handtekening"></ion-checkbox>
+                </ion-item>
                 <ion-item class="btn-remove-border" id="btnSendHeight">
                     <button ion-button type="submit" class="btn-gesprek-send" block>Versturen</button>
                 </ion-item>
