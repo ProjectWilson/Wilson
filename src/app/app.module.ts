@@ -15,8 +15,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
-import * as firebase from 'firebase';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
   export const firebaseConfig = {
