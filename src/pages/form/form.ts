@@ -6,14 +6,17 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+
 export interface gesprekforms {
-  akkoord: boolean;
-  beoordeling: string;
-  bpvbedrijf: string;
-  bpvdocent: string;
-  datum: string;
-  naam: string;
-  praktijkopleider: string;
+    akkoord: string;
+    beoordeling: string;
+    bpvbedrijf: string;
+    bpvdocent: string;
+    datum: string;
+    naam: string;
+    praktijkopleider: string;
 }
 
 @Component({
@@ -23,6 +26,7 @@ export interface gesprekforms {
 
 export class FormPage {
 
+    @ViewChild(Slides) slides: Slides;
     forms: FirebaseListObservable<any>;
     gebruikers: FirebaseListObservable<any>;
     formsCollectionRef: AngularFirestoreCollection<gesprekforms>;
@@ -33,6 +37,10 @@ export class FormPage {
        this.forms = af.list('/gesprekforms');
        this.gebruikers = af.list('/gebruikers');
   }
+
+  radioValue(value) {
+    this.gesprek['BblOrBol'] = value;
+}
 
 	// studentenlijst = {
 	// 	'studentnummer': '',
@@ -85,6 +93,13 @@ export class FormPage {
           }
       }
 
+      inputEnable() {
+            document.querySelector('input[name="naam"]').removeAttribute('disabled');
+            document.querySelector('input[name="bpvbedrijf"]').removeAttribute('disabled');
+            document.querySelector('input[name="bpvdocent"]').removeAttribute('disabled');
+            document.querySelector('input[name="praktijkopleider"]').removeAttribute('disabled');
+            document.querySelector('input[name="datum"]').removeAttribute('disabled');
+        }
 
       presentAlert() {
       let alert = this.alertCtrl.create({
@@ -94,4 +109,37 @@ export class FormPage {
       });
       alert.present();
 }
+
+slideChanged() {
+       // let currentIndex = this.slides.getActiveIndex();
+       let isBeg = this.slides.isBeginning();
+       let isEnd = this.slides.isEnd();
+
+       if(isBeg === true) {
+           document.getElementById('backButton').style.visibility = 'hidden';
+           document.getElementById('forwardButton').style.visibility = 'visible';
+       }
+       else if(isEnd === true) {
+           document.getElementById('forwardButton').style.visibility = 'hidden';
+           document.getElementById('backButton').style.visibility = 'visible';
+       }
+       else {
+           document.getElementById('backButton').style.visibility = 'visible';
+           document.getElementById('forwardButton').style.visibility = 'visible';
+       }
+       //Deze geeft errors? Check -V-
+  //     document.getElementById('gespreksbeoordeling-textarea').getElementsByTagName('textarea')[0].style.height = document.getElementById('textarea-slide').offsetHeight - document.getElementById('btnSendHeight').offsetHeight - document.getElementById('footer-tabs').getElementsByTagName('div')[0].offsetHeight + 'px';
+   }
+
+   vorigeSlide() {
+       this.slides.lockSwipeToPrev(false);
+       this.slides.slidePrev(200, true);
+       this.slides.lockSwipeToPrev(true);
+   }
+   nextSlide() {
+       this.slides.lockSwipeToNext(false);
+       this.slides.slideNext(200, true);
+       this.slides.lockSwipeToNext(true);
+   }
+
 }

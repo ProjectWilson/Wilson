@@ -10,7 +10,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 
 export interface beoordeelforms {
-    akkoord: boolean;
+    akkoord: string;
     vraag1: string;
     bpvbedrijf: string;
     bpvdocent: string;
