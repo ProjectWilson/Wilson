@@ -1,5 +1,3 @@
-# Wilson
-Project Wilson
 <h1>
 Als je nog geen firestore gebruikt hebt.
 
