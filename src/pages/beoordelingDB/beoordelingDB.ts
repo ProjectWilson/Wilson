@@ -42,27 +42,6 @@ export class BeoordelingDBPage {
      });
   }
 
-  gesprek = {}
-  logForm(id) {
-          if(id.datum == null)
-          {
-              let date = new Date;
-              let year = date.getFullYear();
-              let month = date.getMonth() + 1;
-              let day = date.getDate();
-              let datum = year + '-' + month + '-' + day;
-
-              this.gesprek['datum'] = datum;
-              console.log(1);
-          }
-          if(id.akkoord == true)
-          {
-              this.forms.push(this.gesprek);
-          }
-          else{
-            this.presentAlert();
-          }
-      }
 
   public download(id) {
           console.log(id.naam);
