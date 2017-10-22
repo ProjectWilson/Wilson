@@ -2,10 +2,22 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
-
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
+
+export interface beoordeelforms {
+    akkoord: boolean;
+    vraag1: string;
+    bpvbedrijf: string;
+    bpvdocent: string;
+    datum: string;
+    naam: string;
+    praktijkopleider: string;
+}
 
 @Component({
   selector: 'page-beoordeling',
@@ -16,9 +28,12 @@ export class BeoordelingPage {
 
 	forms: FirebaseListObservable<any>;
   @ViewChild(Slides) slides: Slides;
+  formsCollectionRef: AngularFirestoreCollection<beoordeelforms>;
+  form$: Observable<beoordeelforms[]>;
 
-  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
-	   this.forms = af.list('/beoordeelforms');
+  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController, public afs: AngularFirestore) {
+     this.formsCollectionRef = this.afs.collection<beoordeelforms>('beoordeelforms');
+     this.forms = af.list('/beoordeelforms');
   }
 
   initialSchijt(){
@@ -41,7 +56,8 @@ export class BeoordelingPage {
           if(id.akkoord == true)
           {
             console.log(this.rate);
-            this.forms.push(this.rate);
+            //this.forms.push(this.rate);
+            this.formsCollectionRef.add(this.rate);
           }
           else{
             this.presentAlert();

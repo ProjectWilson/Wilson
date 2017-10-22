@@ -2,9 +2,22 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 
 import jsPDF from 'jspdf'
 declare let jsPDF;
+
+export interface beoordeelforms {
+    akkoord: boolean;
+    vraag1: string;
+    bpvbedrijf: string;
+    bpvdocent: string;
+    datum: string;
+    naam: string;
+    praktijkopleider: string;
+}
 
 @Component({
   selector: 'page-form',
@@ -13,10 +26,20 @@ declare let jsPDF;
 
 export class BeoordelingDBPage {
 
-	forms: FirebaseListObservable<any>;
+  forms: FirebaseListObservable<any>;
+  formsCollectionRef: AngularFirestoreCollection<beoordeelforms>;
+  form$: Observable<beoordeelforms[]>;
 
-  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController) {
-	   this.forms = af.list('/beoordeelforms');
+  constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController, public afs: AngularFirestore) {
+     this.forms = af.list('/beoordeelforms');
+     this.formsCollectionRef = this.afs.collection<beoordeelforms>('beoordeelforms');
+     this.form$ = this.formsCollectionRef.snapshotChanges().map(actions => {
+       return actions.map(action => {
+         const data = action.payload.doc.data() as beoordeelforms;
+         const id = action.payload.doc.id;
+         return { id, ...data };
+       });
+     });
   }
 
   gesprek = {}

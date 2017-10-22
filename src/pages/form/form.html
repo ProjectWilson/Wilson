@@ -24,13 +24,13 @@
 		<ion-input [(ngModel)]="studentenlijst.bpv-telefoon" value={{student.bpv-telefoon}}></ion-input>
 	</ion-item> -->
 
-
+<!-- 
 
 	<datalist id="studentenlijst">
 		<option *ngFor="let student of gebruikers | async" value={{student.$key}}>
 	</datalist>
 
-	<ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input>
+	<ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input> -->
 
 
   <form (ngSubmit)="logForm(gesprek)">

@@ -2,7 +2,19 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 
+export interface gesprekforms {
+  akkoord: boolean;
+  beoordeling: string;
+  bpvbedrijf: string;
+  bpvdocent: string;
+  datum: string;
+  naam: string;
+  praktijkopleider: string;
+}
 
 @Component({
   selector: 'page-form',
@@ -13,8 +25,11 @@ export class FormPage {
 
     forms: FirebaseListObservable<any>;
     gebruikers: FirebaseListObservable<any>;
+    formsCollectionRef: AngularFirestoreCollection<gesprekforms>;
+    form$: Observable<gesprekforms[]>;
 
-  constructor(public navCtrl: NavController, public af: AngularFireDatabase, private alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController, public afs: AngularFirestore) {
+       this.formsCollectionRef = this.afs.collection<gesprekforms>('gesprekforms');
        this.forms = af.list('/gesprekforms');
        this.gebruikers = af.list('/gebruikers');
   }
@@ -62,7 +77,8 @@ export class FormPage {
           }
           if(id.akkoord == true)
           {
-              this.forms.push(this.gesprek);
+            this.formsCollectionRef.add(this.gesprek);
+            //  this.forms.push(this.gesprek);
           }
           else{
             this.presentAlert();

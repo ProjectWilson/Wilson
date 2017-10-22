@@ -34,7 +34,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     FormPage,
     FormDBPage,
     BeoordelingPage,
-    BeoordelingDBPage
+    BeoordelingDBPage,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     FormPage,
     FormDBPage,
     BeoordelingPage,
-    BeoordelingDBPage
+    BeoordelingDBPage,
   ],
   providers: [
     StatusBar,

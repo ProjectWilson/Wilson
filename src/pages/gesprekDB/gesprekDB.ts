@@ -9,7 +9,6 @@ import { Observable } from 'rxjs/Observable';
 import jsPDF from 'jspdf'
 declare let jsPDF;
 
-
 export interface gesprekforms {
   akkoord: boolean;
   beoordeling: string;
@@ -30,7 +29,6 @@ export class FormDBPage {
 	forms: FirebaseListObservable<any>;
   formsCollectionRef: AngularFirestoreCollection<gesprekforms>;
   form$: Observable<gesprekforms[]>;
-
 
   constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController, public afs: AngularFirestore) {
 	   this.forms = af.list('/gesprekforms');
