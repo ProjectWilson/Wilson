@@ -1,57 +1,119 @@
+
 <ion-header>
-  <ion-navbar>
-    <ion-title text-center>
-      Gespreksformulier.
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title text-center>
+            Gespreksformulier
+            <button id='backButton' ion-button (click)="vorigeSlide()"><ion-icon name='arrow-back'></ion-icon>&nbsp; Vorige</button>
+            <button id='forwardButton' ion-button (click)="nextSlide()">Volgende &nbsp;<ion-icon name='arrow-forward'></ion-icon></button>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <form (ngSubmit)="logForm(todo)">
-      <ion-item>
-        <ion-label floating>Naam Student</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.naam" name="naam"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>BPV Docent</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.bpvdocent" name="bpvdocent"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>BPV Bedrijf</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.bpvbedrijf" name="bpvbedrijf"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Praktijkopleider</ion-label>
-        <ion-input type="text" [(ngModel)]="todo.praktijkopleider" name="praktijkopleider"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Beoordeling</ion-label>
-        <ion-textarea [(ngModel)]="todo.beoordeling" name="beoordeling"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-label>Datum</ion-label>
-        <ion-input type="date" [(ngModel)]="todo.datum" name="datum"></ion-input>
-        </ion-item>
-      <ion-item>
-        <ion-label>Akkoord</ion-label>
-        <ion-checkbox [(ngModel)]="todo.akkoord" name="akkoord"></ion-checkbox>
-      </ion-item>
-      <button ion-button type="submit" block>Upload Gespreksformulier&nbsp;<ion-icon name='add-circle'></ion-icon></button>
-    </form>
+<!--Studentgegevens aanpassen button effects-->
+<!--Knop 'back' op pagina1 niet weergeven (currentindex meteen ophalen) en textarea 2e slide meteen grootte goedzetten(onload ofzo) ipv onslidechange-->
+<!--Slider op mobiel/tablet testen ivm swipe grootte & textarea mobile/tablet testen-->
 
-  <ion-list>
-    <ion-item *ngFor="let form of forms | async">
-        Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
-        <br />
-        BPV Docent: {{form.bpvdocent}}
-        <br />
-        BPV Bedrijf: {{form.bpvbedrijf}}
-        <br />
-        Praktijkopleider: {{form.praktijkopleider}}
-        <br />
-        Beoordeling: {{form.beoordeling}}
-        <br />
-        Datum: {{form.datum}}
-        </ion-item>
-  </ion-list>
+<ion-content padding>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+
+        <ion-slide>
+          <!-- <ion-item *ngFor="let student of gebruikers | async; let i = index" hidden>
+                  <ion-input [(ngModel)]="studentenlijst.studentnummer" value={{student.studentnummer}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.roepnaam" value={{student.roepnaam}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.voorvoegsel" value={{student.voorvoegsel}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.achternaam" value={{student.achternaam}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.telefoon" value={{student.telefoon}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.woonplaats" value={{student.woonplaats}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.opleiding" value={{student.opleiding}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.bpvbegeleider" value={{student.bpv-begeleider}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.email" value={{student.email}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.praktijkopleider" value={{student.praktijkopleider}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.bedrijf" value={{student.bedrijf}}></ion-input>
+                  <ion-input [(ngModel)]="studentenlijst.bpv-telefoon" value={{student.bpv-telefoon}}></ion-input>
+              </ion-item> -->
+
+
+            <ion-item class="btn-remove-border">
+                <button ion-button id="editStudentDetails" class="btn-edit-student-details" (click)="inputEnable()" block>Studentgegevens aanpassen</button>
+            </ion-item>
+
+
+
+            <datalist id="studentenlijst">
+				<option *ngFor="let student of gebruikers$ | async" value={{student.studentnummer}}>
+			</datalist>
+
+			<ion-input placeholder="Studentnummer" list="studentenlijst" type="text" [(ngModel)]="gesprek.studentnummer" name="naam" (change)="autofill()"></ion-input>
+
+
+
+            <form (ngSubmit)="logForm(id)">
+
+                <ion-item>
+                    <ion-label floating>Student</ion-label>
+                    <ion-input list="studentenlijst" type="text" [(ngModel)]="gesprek.naam" name="naam" disabled></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>BPV Bedrijf</ion-label>
+                    <ion-input type="text" [(ngModel)]="gesprek.bpvbedrijf" name="bpvbedrijf" disabled></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>BPV Docent</ion-label>
+                    <ion-input type="text" [(ngModel)]="gesprek.bpvdocent" name="bpvdocent" disabled></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Praktijkopleider</ion-label>
+                    <ion-input type="text" [(ngModel)]="gesprek.praktijkopleider" name="praktijkopleider" disabled></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Begindatum BPV</ion-label>
+                    <ion-input type="date" [(ngModel)]="gesprek.datum" name="datum"></ion-input>
+                </ion-item>
+
+
+                <ion-list radio-group>
+
+                    <ion-item class="radio-bol-bbl">
+                        <ion-label>BOL</ion-label>
+                        <ion-radio (ionSelect)="radioValue('bol')"></ion-radio>
+                    </ion-item>
+
+                    <ion-item class="radio-bol-bbl">
+                        <ion-label>BBL</ion-label>
+                        <ion-radio (ionSelect)="radioValue('bbl')"></ion-radio>
+                    </ion-item>
+
+                </ion-list>
+
+            </form>
+
+        </ion-slide>
+
+        <ion-slide>
+
+            <form (ngSubmit)="logForm(id)">
+
+                <ion-item>
+                    <ion-label floating>Beoordeling</ion-label>
+                    <ion-textarea [(ngModel)]="gesprek.beoordeling" id="gespreksbeoordeling-textarea" name="beoordeling"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Handtekening</ion-label>
+                         <ion-checkbox [(ngModel)]="gesprek.handtekening" name="handtekening"></ion-checkbox>
+                </ion-item>
+                <ion-item class="btn-remove-border" id="btnSendHeight">
+                    <button ion-button type="submit" class="btn-gesprek-send" block>Versturen</button>
+                </ion-item>
+
+            </form>
+
+        </ion-slide>
+
+    </ion-slides>
+
 </ion-content>

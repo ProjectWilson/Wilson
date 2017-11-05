@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Gespreksformulier.
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+        <ion-item *ngFor="let form of form$ | async">
+          Studentnaam: {{form.naam}} <button ion-button id='exportButton' (click)='download(form)' large>Export&nbsp;<ion-icon name='download'></ion-icon></button>
+          <br />
+          BPV Docent: {{form.bpvdocent}}
+          <br />
+          BPV Bedrijf: {{form.bpvbedrijf}}
+          <br />
+          Praktijkopleider: {{form.praktijkopleider}}
+          <br />
+          Beoordeling: {{form.beoordeling}}
+          <br />
+          Datum: {{form.datum}}
+        </ion-item>
+  </ion-list>
+</ion-content>

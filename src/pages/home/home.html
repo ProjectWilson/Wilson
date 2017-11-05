@@ -1,11 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Project Wilson
+    <ion-title text-center>
+      Stage Tool - (Codename: Project Wilson)
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  Home page met info, ga naar beoordeling tab.
+
+
+  <button class='navButtonke' ion-button large (click)="linkPage('FormPage')">Gespreksformulier</button>
+  <button class='navButtonke' ion-button large (click)="linkPage('BeoordelingPage')">Beoordelingsformulier</button>
+
+
 </ion-content>
