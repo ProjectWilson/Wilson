@@ -19,7 +19,7 @@ export interface gesprekforms {
     praktijkopleider: string;
 }
 export interface gebruikers {
-    
+
 }
 
 @Component({
@@ -40,7 +40,7 @@ export class FormPage {
        this.formsCollectionRef = this.afs.collection<gesprekforms>('gesprekforms');
 	   this.gebruikersCollectionRef = this.afs.collection<gebruikers>('gebruikers');
        this.forms = af.list('/gesprekforms');
-	   
+
 	   this.gebruikers$ = this.gebruikersCollectionRef.snapshotChanges().map(actions => {
        return actions.map(action => {
          const data = action.payload.doc.data() as gebruikers;
@@ -151,11 +151,11 @@ slideChanged() {
        this.slides.slideNext(200, true);
        this.slides.lockSwipeToNext(true);
    }
-   
+
 	autofill() {
 		this.gesprek.bpvbedrijf = "Timmerbedrijf Henri";
 		this.gesprek.naam = "Sjaak van Appel";
 		this.gesprek.bpvdocent = "Peer van Arendonk";
-		this.gesprek.praktijkopleider = "van Bergen";		
+		this.gesprek.praktijkopleider = "van Bergen";
 	}
 }
