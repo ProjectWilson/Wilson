@@ -34,24 +34,25 @@
               </ion-item> -->
 
 
-            <form (ngSubmit)="inputEnable()">
-                <ion-item class="btn-remove-border">
-                    <button ion-button id="editStudentDetails" class="btn-edit-student-details" block>Studentgegevens aanpassen</button>
-                </ion-item>
-            </form>
+            <ion-item class="btn-remove-border">
+                <button ion-button id="editStudentDetails" class="btn-edit-student-details" (click)="inputEnable()" block>Studentgegevens aanpassen</button>
+            </ion-item>
+            
 
 
-            <!-- <datalist id="studentenlijst">
-                <option *ngFor="let student of gebruikers | async" value={{student.studentnummer}}>
-            </datalist>
-
-            <ion-input list="studentenlijst" name='studentnummer' placeholder="Leerlingnummer" [(ngModel)]="gesprek.studentnummer" (change)="autofill()"></ion-input> -->
+            <datalist id="studentenlijst">
+				<option *ngFor="let student of gebruikers$ | async" value={{student.studentnummer}}>
+			</datalist>
+			
+			<ion-input placeholder="Studentnummer" list="studentenlijst" type="text" [(ngModel)]="gesprek.studentnummer" name="naam" (change)="autofill()"></ion-input>
+                
+                
 
             <form (ngSubmit)="logForm(id)">
-
+			
                 <ion-item>
                     <ion-label floating>Student</ion-label>
-                    <ion-input type="text" [(ngModel)]="gesprek.naam" name="naam" disabled></ion-input>
+                    <ion-input list="studentenlijst" type="text" [(ngModel)]="gesprek.naam" name="naam" disabled></ion-input>
                 </ion-item>
 
                 <ion-item>

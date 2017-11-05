@@ -18,6 +18,9 @@ export interface gesprekforms {
     naam: string;
     praktijkopleider: string;
 }
+export interface gebruikers {
+    
+}
 
 @Component({
   selector: 'page-form',
@@ -28,14 +31,23 @@ export class FormPage {
 
     @ViewChild(Slides) slides: Slides;
     forms: FirebaseListObservable<any>;
-    gebruikers: FirebaseListObservable<any>;
     formsCollectionRef: AngularFirestoreCollection<gesprekforms>;
     form$: Observable<gesprekforms[]>;
+	gebruikersCollectionRef: AngularFirestoreCollection<gebruikers>;
+	gebruikers$: Observable<gebruikers[]>;
 
     constructor(public navCtrl: NavController, af: AngularFireDatabase, private alertCtrl: AlertController, public afs: AngularFirestore) {
        this.formsCollectionRef = this.afs.collection<gesprekforms>('gesprekforms');
+	   this.gebruikersCollectionRef = this.afs.collection<gebruikers>('gebruikers');
        this.forms = af.list('/gesprekforms');
-       this.gebruikers = af.list('/gebruikers');
+	   
+	   this.gebruikers$ = this.gebruikersCollectionRef.snapshotChanges().map(actions => {
+       return actions.map(action => {
+         const data = action.payload.doc.data() as gebruikers;
+         const id = action.payload.doc.id;
+         return { id, ...data };
+       });
+     });
   }
 
   radioValue(value) {
@@ -139,5 +151,11 @@ slideChanged() {
        this.slides.slideNext(200, true);
        this.slides.lockSwipeToNext(true);
    }
-
+   
+	autofill() {
+		this.gesprek.bpvbedrijf = "Timmerbedrijf Henri";
+		this.gesprek.naam = "Sjaak van Appel";
+		this.gesprek.bpvdocent = "Peer van Arendonk";
+		this.gesprek.praktijkopleider = "van Bergen";		
+	}
 }
